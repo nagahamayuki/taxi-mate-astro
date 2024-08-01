@@ -1,0 +1,47 @@
+---
+import { fetchJobs } from '../../lib/contentful';
+
+const jobs = await fetchJobs();
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job List - Job Site</title>
+    <link rel="stylesheet" href="/styles/tailwind.css">
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center">
+      <div class="text-lg font-semibold">Job Site</div>
+      <nav class="hidden md:flex space-x-4">
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/job" class="text-gray-700 hover:text-blue-500">Jobs</a>
+      </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container mx-auto p-4">
+      <h1>求人一覧</h1>
+      <div class="job-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {jobs.map((job) => (
+          <div class="job-item border p-4 rounded shadow-md" key={job.id}>
+            <h2 class="text-xl font-semibold mb-2">
+              <a href={`/job/${job.id}`} class="text-blue-500 hover:underline">{job.title}</a>
+            </h2>
+            <p class="text-gray-700"><strong>Company:</strong> {job.company}</p>
+            <p class="text-gray-700"><strong>Area:</strong> {job.area}</p>
+            <p class="text-gray-700"><strong>Salary:</strong> {job.salary}</p>
+            <div class="text-gray-700" dangerouslySetInnerHTML={{ __html: job.description }}></div>
+          </div>
+        ))}
+      </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-white shadow-md p-4 text-center">
+      <p>&copy; 2024 Job Site. All rights reserved.</p>
+    </footer>
+    <script src="/scripts/flowbite.min.js" is:inline></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+---
+import { fetchJobs } from '../lib/contentful';
+
+const jobs = await fetchJobs();
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Site</title>
+    <link rel="stylesheet" href="/styles/tailwind.css">
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center">
+      <div class="text-lg font-semibold">Job Site</div>
+      <nav class="hidden md:flex space-x-4">
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/job" class="text-gray-700 hover:text-blue-500">Jobs</a>
+      </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container mx-auto p-4">
+      <h1>Welcome to Job Site</h1>
+      <p>Explore the latest job opportunities.</p>
+      <a href="/job" class="text-blue-500 hover:underline">View Job Listings</a>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-white shadow-md p-4 text-center">
+      <p>&copy; 2024 Job Site. All rights reserved.</p>
+    </footer>
+    <script src="/scripts/flowbite.min.js" is:inline></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+---
+import { contentfulClient, fetchJobById } from '../../lib/contentful';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+export async function getStaticPaths() {
+  const { items } = await contentfulClient.getEntries({
+    content_type: 'job',
+  });
+  const pages = items.map((item) => ({
+    params: { id: item.fields.id.toString() },
+    props: {
+      title: item.fields.title,
+      company: item.fields.company,
+      description: documentToHtmlString(item.fields.description),
+      area: item.fields.area,
+      salary: item.fields.salary,
+      dormitory: documentToHtmlString(item.fields.dormitory),
+      interviewday: documentToHtmlString(item.fields.interviewday),
+    },
+  }));
+  return pages;
+}
+
+const { title, company, description, area, salary, dormitory, interviewday } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} - Job Site</title>
+    <link rel="stylesheet" href="/styles/tailwind.css">
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center">
+      <div class="text-lg font-semibold">Job Site</div>
+      <nav class="hidden md:flex space-x-4">
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/job" class="text-gray-700 hover:text-blue-500">Jobs</a>
+      </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container mx-auto p-4">
+      <h1 class="text-2xl font-bold mb-4">{title}</h1>
+      <p class="text-gray-700"><strong>Company:</strong> {company}</p>
+      <p class="text-gray-700"><strong>Area:</strong> {area}</p>
+      <p class="text-gray-700"><strong>Salary:</strong> {salary}</p>
+      <div class="text-gray-700" set:html={description}></div>
+      <h2 class="text-xl font-bold mt-4">Dormitory</h2>
+      <div class="text-gray-700" set:html={dormitory}></div>
+      <h2 class="text-xl font-bold mt-4">Interview Day</h2>
+      <div class="text-gray-700" set:html={interviewday}></div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-white shadow-md p-4 text-center">
+      <p>&copy; 2024 Job Site. All rights reserved.</p>
+    </footer>
+    <script src="/scripts/flowbite.min.js" is:inline></script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/:path((?!index$|.*\\/|$).+)",
+      "source": "/:path((?!index$|index\\.html$|.*\\/|$).+)",
       "destination": "/:path/",
       "permanent": true
     }

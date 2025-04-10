@@ -1,10 +1,9 @@
 {
-    "redirects": [
-      {
-        "source": "/:path((?!.*\\/$).*)",
-        "destination": "/:path/",
-        "permanent": true
-      }
-    ]
-  }
-  
+  "redirects": [
+    {
+      "source": "/:path((?!index$|.*\\/|$).+)",
+      "destination": "/:path/",
+      "permanent": true
+    }
+  ]
+}

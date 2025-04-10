@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getJobsFromNotion } from '../../lib/notion.js';
+
+export async function getStaticPaths() {
+  const jobs = await getJobsFromNotion();
+  
+  return jobs.map((job, index) => {
+    const slug = `job-${index + 1}`;
+    
+    return {
+      params: { slug },
+      props: { job },
+    };
+  });
+}
+
+const { job } = Astro.props;
+
+const pageTitle = `${job.title}｜タクシーメイト`;
+const pageDescription = `${job.title}の求人情報です。タクシー業界を知り尽くしたキャリアアドバイザーがあなたの転職をサポートします。`;
+const pageUrl = `https://taxi-mate.jp/jobs/${Astro.params.slug}/`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} url={pageUrl}>
+  <Fragment slot="head">
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+  </Fragment>
+
+  <h1>{job.title}</h1>   
+  <div class="job-card" key={job.id}>
+    <h2>{job.company}</h2>
+    <p><strong>ID:</strong> {job.id}</p>
+    <p><strong>タイトル:</strong> {job.title}</p>
+    <p><strong>勤務地:</strong> {job.location}</p>
+    <p><strong>グループ:</strong> {job.group.join(', ')}</p>
+    <p><strong>募集状況:</strong> {job.status}</p>
+    <p><strong>配車アプリ:</strong> {job.dispatchApps.join(', ')}</p>
+    <p><strong>本社住所:</strong> {job.headOffice}</p>
+    <p><strong>Notion URL:</strong> <a href={job.notionUrl} target="_blank">{job.notionUrl}</a></p>
+  </div>
+    
+  <div class="cta-box">
+    <h2>この求人に応募する</h2>
+    <p>下記のボタンからお問い合わせください。担当アドバイザーからご連絡いたします。</p>
+    <a href={`/contact?job=${encodeURIComponent(job.title)}`} class="apply-button">
+      応募する
+    </a>
+  </div>
+</BaseLayout>

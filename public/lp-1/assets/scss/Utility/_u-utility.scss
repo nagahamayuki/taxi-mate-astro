@@ -1,0 +1,112 @@
+// pc&sp
+.pc {
+  // display: flex !important;
+}
+
+.sp {
+  // display: none !important;
+}
+
+.tc {
+  display: block !important;
+}
+
+.tb {
+  display: none !important;
+}
+
+@include media('tb') {
+  .tc {
+    display: none !important;
+  }
+
+  .tb {
+    display: block !important;
+  }
+}
+
+@include media('sp') {
+  .pc {
+    display: none !important;
+  }
+
+  .sp {
+    display: flex !important;
+  }
+}
+
+//hide
+
+@include media('pc') {
+  .pc {
+    display: flex !important;
+  }
+
+  .sp {
+    display: none !important;
+  }
+
+  .pc-hide {
+    display: none !important;
+  }
+}
+
+@include media('sp') {
+  .pc {
+    display: none !important;
+  }
+  .sp-hide {
+    display: none !important;
+  }
+}
+
+// wrapper
+#wrapper {
+  position: relative;
+  width: 100%;
+}
+
+main {
+  position: relative;
+}
+
+
+
+
+
+
+
+select {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(../img/select-down.svg);
+  background-position: calc(100% - 1.2rem) 50%;
+  background-size: 1.0rem 0.8rem;
+  background-repeat: no-repeat;
+  z-index: 0;
+  @include media('sp') {
+    background-position: calc(100% - 1.0rem) 50%;
+  }
+}
+
+// picture
+picture,
+figure,
+.image_wrap {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+picture img,
+figure img,
+.image_wrap img {
+  width: 100%;
+}
+
+
+

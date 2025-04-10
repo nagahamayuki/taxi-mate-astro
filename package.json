@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.6.1"
+    "@notionhq/client": "^2.3.0",
+    "astro": "^5.6.1",
+    "dotenv": "^16.4.7"
   }
 }

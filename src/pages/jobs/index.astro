@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getJobsFromNotion } from '../../lib/notion.js';
+
+const pageUrl = 'https://taxi-mate.jp/jobs/';
+const pageTitle = '求人一覧｜タクシーメイト';
+const pageDescription = 'タクシーメイトはタクシー業界専門の転職支援サービスです。厳選した月給45万円以上が目指せる会社のみを紹介。タクシー業界を知り尽くしたキャリアアドバイザーがあなたの転職をサポートします。';
+
+const jobs = await getJobsFromNotion();
+const jobsCount = jobs.length;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} url={pageUrl}>
+		<!-- ページ固有のhead要素 -->
+		<Fragment slot="head">
+			<meta property="og:url" content={pageUrl} />
+			<meta property="og:title" content={pageTitle} />
+			<meta property="og:description" content={pageDescription} />
+		</Fragment>
+
+		<h1>求人一覧</h1>
+		{jobs.map((job, index) => {
+		  const slug = `job-${index + 1}`;
+		  const detailUrl = `/jobs/${slug}/`;
+
+		  return (
+		    <div class="job-card" key={job.id}>
+				<h2>{job.company}</h2>
+				<p><strong>ID:</strong> {job.id}</p>
+				<p><strong>タイトル:</strong> <a href={detailUrl}>{job.title}</a></p>
+				<p><strong>勤務地:</strong> {job.location}</p>
+				<p><strong>グループ:</strong> {job.group.join(', ')}</p>
+				<p><strong>募集状況:</strong> {job.status}</p>
+				<p><strong>配車アプリ:</strong> {job.dispatchApps.join(', ')}</p>
+				<p><strong>本社住所:</strong> {job.headOffice}</p>
+				<p><strong>Notion URL:</strong> <a href={job.notionUrl} target="_blank">{job.notionUrl}</a></p>
+		    </div>
+		  );
+		})}
+
+
+
+		{jobsCount === 0 ? (
+			<p>現在、募集中の求人はありません。</p>
+		) : (
+			<p>求人は {jobsCount} 件です</p>
+		)}
+</BaseLayout>

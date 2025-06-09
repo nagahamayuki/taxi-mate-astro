@@ -31,11 +31,11 @@ const jobsCount = jobs.length;
       >
         {
           jobs.map((job, index) => {
-            const slug = `job-${index + 1}`;
+            const slug = job.id;
             const detailUrl = `/jobs/${slug}/`;
 
             return (
-              <a href="#" class="group" key={job.id}>
+              <a href={detailUrl} class="group">
                 <img
                   src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg"
                   alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."

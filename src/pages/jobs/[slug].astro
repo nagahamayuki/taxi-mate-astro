@@ -4,12 +4,10 @@ import { getJobsFromNotion } from '../../lib/notion.js';
 
 export async function getStaticPaths() {
   const jobs = await getJobsFromNotion();
-  
+
   return jobs.map((job, index) => {
-    const slug = `job-${index + 1}`;
-    
     return {
-      params: { slug },
+      params: { slug: job.id },
       props: { job },
     };
   });
@@ -29,24 +27,66 @@ const pageUrl = `https://taxi-mate.jp/jobs/${Astro.params.slug}/`;
     <meta property="og:description" content={pageDescription} />
   </Fragment>
 
-  <h1>{job.title}</h1>   
-  <div class="job-card" key={job.id}>
-    <h2>{job.company}</h2>
-    <p><strong>ID:</strong> {job.id}</p>
-    <p><strong>タイトル:</strong> {job.title}</p>
-    <p><strong>勤務地:</strong> {job.location}</p>
-    <p><strong>グループ:</strong> {job.group.join(', ')}</p>
-    <p><strong>募集状況:</strong> {job.status}</p>
-    <p><strong>配車アプリ:</strong> {job.dispatchApps.join(', ')}</p>
-    <p><strong>本社住所:</strong> {job.headOffice}</p>
-    <p><strong>Notion URL:</strong> <a href={job.notionUrl} target="_blank">{job.notionUrl}</a></p>
-  </div>
-    
-  <div class="cta-box">
-    <h2>この求人に応募する</h2>
-    <p>下記のボタンからお問い合わせください。担当アドバイザーからご連絡いたします。</p>
-    <a href={`/contact?job=${encodeURIComponent(job.title)}`} class="apply-button">
-      応募する
-    </a>
+  <div class="bg-white">
+    <div
+      class="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8"
+    >
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        {job.title}
+      </h1>
+      <div
+        class="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16"
+      >
+        <section aria-labelledby="job-details-heading" class="lg:col-span-7">
+          <h2 id="job-details-heading" class="sr-only">求人詳細</h2>
+          <!-- 求人詳細 -->
+          <h1>{job.title}</h1>
+          <div class="job-card">
+            <h2>{job.company}</h2>
+            <p><strong>ID:</strong> {job.id}</p>
+            <p><strong>タイトル:</strong> {job.title}</p>
+            <p><strong>勤務地:</strong> {job.location}</p>
+            <p><strong>グループ:</strong> {job.group.join(', ')}</p>
+            <p><strong>募集状況:</strong> {job.status}</p>
+            <p><strong>配車アプリ:</strong> {job.dispatchApps.join(', ')}</p>
+            <p><strong>本社住所:</strong> {job.headOffice}</p>
+            <p>
+              <strong>Notion URL:</strong>
+              <a href={job.notionUrl} target="_blank">{job.notionUrl}</a>
+            </p>
+          </div>
+        </section>
+
+        <!-- Order summary -->
+        <section
+          aria-labelledby="summary-heading"
+          class="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+        >
+          <h2 id="summary-heading" class="text-lg font-medium text-gray-900">
+            Order summary
+          </h2>
+
+          <div class="mt-6">
+            <button
+              type="submit"
+              class="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 focus:outline-hidden"
+              >Checkout</button
+            >
+          </div>
+          <div class="cta-box">
+            <h2>この求人に応募する</h2>
+            <p>
+              下記のボタンからお問い合わせください。担当アドバイザーからご連絡いたします。
+            </p>
+            <a
+              href={`/contact?job=${encodeURIComponent(job.title)}`}
+              class="apply-button"
+            >
+              応募する
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
   </div>
 </BaseLayout>

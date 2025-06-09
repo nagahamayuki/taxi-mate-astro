@@ -87,6 +87,13 @@ taxi-mate-astro/
 * `/jobs/` の一覧は Notion DB の内容を元に静的生成される。
 * `[slug].astro` の `getStaticPaths()` により、動的なルーティングが設定される。
 
+## デプロイ
+
+本プロジェクトはVercelとGitHubを連携しており、mainブランチ（または指定ブランチ）にpushされると自動的にVercelへデプロイされます。
+
+- デプロイ先: [Vercel](https://vercel.com/)
+- 設定はVercelのWebダッシュボードで管理しています
+
 ## よくある質問
 
 ### Q. `/jobs` にアクセスすると404になる？

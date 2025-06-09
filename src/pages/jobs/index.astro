@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getJobsFromNotion } from '../../lib/notion.js';
+import CTA from '../../components/CTA.astro';
 
 const pageUrl = 'https://taxi-mate.jp/jobs/';
 const pageTitle = '求人一覧｜タクシーメイト';
@@ -61,6 +62,8 @@ const jobsCount = jobs.length;
       </p>
     </div>
   </div>
+
+  <CTA />
 
   <!-- ループ表示用 -->
   {

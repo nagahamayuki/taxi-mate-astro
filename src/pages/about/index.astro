@@ -3,14 +3,169 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const pageUrl = 'https://taxi-mate.jp/about/';
 const pageTitle = 'タクシーメイトとは？';
-const pageDescription = 'タクシーメイトはタクシー業界専門の転職支援サービスです。厳選した月給45万円以上が目指せる会社のみを紹介。タクシー業界を知り尽くしたキャリアアドバイザーがあなたの転職をサポートします。';
+const pageDescription =
+  'タクシーメイトはタクシー業界専門の転職支援サービスです。厳選した月給45万円以上が目指せる会社のみを紹介。タクシー業界を知り尽くしたキャリアアドバイザーがあなたの転職をサポートします。';
+
+const features = [
+  {
+    title: '月給45万円が目指せる求人',
+    description:
+      '東京・神奈川・埼玉を中心に月給45万円以上が目指せる求人のみに厳選しています。',
+  },
+  {
+    title: '給与保証あり',
+    description:
+      '平均して入社3ヶ月から6ヶ月の間まで給与保証がある会社をご用意しております。',
+  },
+  {
+    title: '話題のアプリ搭載',
+    description:
+      '話題のアプリ「GO」をはじめ、「S.RIDE」「UBER」「DiDi」などの配車アプリから選べます。',
+  },
+  {
+    title: '入社祝い金あり',
+    description:
+      '会社によっては、入社祝い金があるケースもあります。24ヶ月の積み立て型もあるので予めご了承ください。',
+  },
+  {
+    title: '日勤・夜勤などの希望',
+    description:
+      '基本は隔勤がメインですが、希望によっては昼日勤・夜勤から選択することもできます。',
+  },
+  {
+    title: '自由な休憩時間',
+    description:
+      '隔勤であれば3時間の休憩中にサウナに入ったり、昼寝をしたりなど休憩時間の取り方は各自の自由です。',
+  },
+  {
+    title: 'マイカー通勤可能',
+    description:
+      '会社から少し離れている方は、自家用車で通勤することもできます。遠い方では茨城などから東京に通う人もいます。',
+  },
+  {
+    title: '交通費支給あり',
+    description:
+      '駅から離れたタクシー会社の場合は最大1万5,000円の交通費が支給されるケースもあります。',
+  },
+  {
+    title: '社会保険完備',
+    description:
+      '健康保険・厚生年金・雇用保険など全て完備していますので安心してご入社ください。',
+  },
+  {
+    title: '寮あり',
+    description:
+      '通勤が億劫な方には単身寮のご用意があります。築年数は古いですが家賃が非常に安いことが魅力です。',
+  },
+  {
+    title: '引越し支援あり',
+    description:
+      '地方からの転職者については入社時に引っ越し支援があるタクシー会社もいくつかご用意しています。',
+  },
+  {
+    title: '福利厚生も充実',
+    description:
+      '寮に大浴場が付いていたりする会社もあるなど、その会社毎に充実した福利厚生をご用意しております。',
+  },
+];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} url={pageUrl}>
-	<!-- ページ固有のhead要素 -->
-	<Fragment slot="head">
-		<meta property="og:url" content={pageUrl} />
-		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={pageDescription} />
-	</Fragment>
+  <!-- ページ固有のhead要素 -->
+  <Fragment slot="head">
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+  </Fragment>
+
+  <!-- ヘッダーセクション -->
+  <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+    <img
+      src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+      alt=""
+      class="absolute inset-0 -z-10 size-full object-cover"
+    />
+    <div
+      class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+      aria-hidden="true"
+    >
+      <div
+        class="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+      >
+      </div>
+    </div>
+    <div
+      class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+      aria-hidden="true"
+    >
+      <div
+        class="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+      >
+      </div>
+    </div>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2
+          class="text-5xl font-semibold tracking-tight text-white sm:text-7xl"
+        >
+          タクシーメイトは、タクシー専門の転職支援サービスです。
+        </h2>
+        <p
+          class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8"
+        >
+          キャリアアドバイザーが、転職を希望される方とタクシー会社の間に入り求人のご提案、推薦書の作成、履歴書添削、内定、入社後フォローまでを一貫してお手伝いさせていただくサービスです。他社のタクシー会社比較サイトとは違い、登録をすると一人ひとりに業界を熟知したアドバイザーが付き、推薦などのサポートが受けられるため、転職活動を効率的に進めることができます。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 条件に合う求人 -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="text-yellow-600 font-semibold mb-2">
+          豊富な求人の中から希望の条件で検索
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          さまざまな条件の中からマッチしたタクシー会社をご紹介
+        </h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">
+          数分のお電話で希望の条件をお伺いし、最もマッチする求人をご紹介致します。希望に沿ったご提案が出来るよう様々な条件の求人をご用意しております。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          features.map((feature) => (
+            <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+              <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0">
+                  <svg
+                    class="w-8 h-8 text-yellow-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+                  <p class="text-gray-600 text-sm">{feature.description}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </BaseLayout>

@@ -13,6 +13,7 @@
 * 独立したLPページ（`/lp-1`）を完全HTML/CSS/JSで配置
 * 全ページ共通でGoogle Tag Manager対応
 * 動的ルーティング（`/job/[slug]`）で求人詳細を生成
+* URL末尾のスラッシュ統一（`trailingSlash: 'always'`）によるSEO一貫性の確保
 
 ## ディレクトリ構成
 
@@ -35,10 +36,12 @@ taxi-mate-astro/
 
 * **Astro**
 * **Tailwind CSS**（ユーティリティクラス利用）
+  - バージョン: ^4.1.3
+  - `@tailwindcss/vite` プラグイン対応済み
 * **Notion API**（データソースとして利用）
 * **Node.js (ESM)**
 
-## セットアップ手順
+## セットアップ手順(新しいPC)
 
 1. **依存パッケージのインストール**
 
@@ -54,6 +57,7 @@ taxi-mate-astro/
    NOTION_DATABASE_ID=your_database_id
    ```
 
+上記1,2ができている場合は3から開発可能。
 3. **ローカルサーバ起動**
 
    ```bash
@@ -66,6 +70,16 @@ taxi-mate-astro/
    node src/lib/test-notion.js
    ```
 
+## 開発環境の特徴
+
+| 項目             | 内容                                                                 |
+|------------------|----------------------------------------------------------------------|
+| 開発サーバー起動 | `npm run dev` で Astro 開発サーバを起動                              |
+| Node.js実行      | `node src/lib/test-notion.js` などを CLI で直接実行                  |
+| バージョン管理   | Node.js v22.5.1 を使用（Herd特有の記述なし）                         |
+| .envファイル     | 手動で `.env` をルートに配置して使用                                 |
+| パッケージ管理   | `npm install` を使用（herd install は使われていない）                |
+
 ## 開発者向けメモ
 
 * ページ単位で `title` / `description` / `url` を `BaseLayout` に渡すことでSEO情報を制御。
@@ -77,7 +91,7 @@ taxi-mate-astro/
 
 ### Q. `/jobs` にアクセスすると404になる？
 
-Astroは末尾スラッシュがあるURL（例：`/jobs/`）を正とみなします。末尾なしアクセスを許容するには、サーバーまたはCDNでリダイレクト設定が必要です。
+Astroは末尾スラッシュがあるURL（例：`/jobs/`）を正とみなします。本プロジェクトでは `astro.config.mjs` で `trailingSlash: 'always'` を設定し、すべてのURLで末尾スラッシュを強制することで、SEOの一貫性を確保しています。末尾なしアクセスを許容するには、サーバーまたはCDNでリダイレクト設定が必要です。
 
 ### Q. `canonical` タグは必要？
 

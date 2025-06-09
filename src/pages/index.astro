@@ -3,14 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageUrl = 'https://taxi-mate.jp/';
 const pageTitle = 'タクシーメイト';
-const pageDescription = 'タクシーメイトはタクシー業界専門の転職支援サービスです。厳選した月給45万円以上が目指せる会社のみを紹介。タクシー業界を知り尽くしたキャリアアドバイザーがあなたの転職をサポートします。';
+const pageDescription =
+  'タクシーメイトはタクシー業界専門の転職支援サービスです。厳選した月給45万円以上が目指せる会社のみを紹介。タクシー業界を知り尽くしたキャリアアドバイザーがあなたの転職をサポートします。';
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} url={pageUrl}>
-	<!-- ページ固有のhead要素 -->
-	<Fragment slot="head">
-		<meta property="og:url" content={pageUrl} />
-		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={pageDescription} />
-	</Fragment>
+  <!-- ページ固有のhead要素 -->
+  <Fragment slot="head">
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+  </Fragment>
 </BaseLayout>

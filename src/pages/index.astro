@@ -18,6 +18,7 @@ const pageDescription =
 
   <!-- トップページビュー -->
   <div class="relative isolate">
+    <!-- 幾何学背景 -->
     <svg
       class="absolute inset-x-0 top-0 -z-10 h-256 w-full mask-[radial-gradient(32rem_32rem_at_center,white,transparent)] stroke-gray-200"
       aria-hidden="true"
@@ -46,6 +47,7 @@ const pageDescription =
         fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"></rect>
     </svg>
 
+    <!-- グラデーション -->
     <div
       class="absolute top-0 right-0 left-1/2 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
       aria-hidden="true"
@@ -94,8 +96,8 @@ const pageDescription =
             >
               <div class="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                  alt="タクシー運転手"
+                  src="/images/top1.jpg"
+                  alt="タクシー運転手が同僚と話している様子"
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -110,8 +112,8 @@ const pageDescription =
             >
               <div class="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                  alt="街並み"
+                  src="/images/top2.jpg"
+                  alt="若い運転手が車に乗っている様子"
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -121,8 +123,8 @@ const pageDescription =
               </div>
               <div class="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
-                  alt="モバイルアプリ"
+                  src="/images/top3.jpg"
+                  alt="若い女性のドライバーが運転している様子"
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -135,8 +137,8 @@ const pageDescription =
             <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
               <div class="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
-                  alt="ユーザー"
+                  src="/images/top4.jpg"
+                  alt="お客さんを待っている若いドライバー"
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -146,8 +148,8 @@ const pageDescription =
               </div>
               <div class="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                  alt="テクノロジー"
+                  src="/images/top5.jpg"
+                  alt="若いドライバーが洗車をしている様子"
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -166,40 +168,33 @@ const pageDescription =
   <div class="bg-white py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div
-        class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5"
+        class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-4"
       >
         <img
           class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg"
+          src="/images/mv_icon_go.webp"
           alt="Transistor"
           width="158"
           height="48"
         />
         <img
           class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg"
+          src="/images/mv_icon_sride.webp"
           alt="Reform"
           width="158"
           height="48"
         />
         <img
           class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg"
+          src="/images/mv_icon_uber.webp"
           alt="Tuple"
           width="158"
           height="48"
         />
         <img
-          class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg"
+          class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+          src="/images/mv_icon_didi.webp"
           alt="SavvyCal"
-          width="158"
-          height="48"
-        />
-        <img
-          class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-          src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg"
-          alt="Statamic"
           width="158"
           height="48"
         />
@@ -227,8 +222,8 @@ const pageDescription =
         <li>
           <img
             class="aspect-3/2 w-full rounded-2xl object-cover"
-            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-            alt=""
+            src="/images/feature1.jpg"
+            alt="ドライバー志望者がタクシー会社の面接を受けている様子"
           />
           <h3 class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">
             推薦書を作成するので合格率が高い
@@ -237,8 +232,8 @@ const pageDescription =
         <li>
           <img
             class="aspect-3/2 w-full rounded-2xl object-cover"
-            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-            alt=""
+            src="/images/feature2.jpg"
+            alt="ドライバー志望者がスマホでタクシー会社の求人を確認している様子"
           />
           <h3 class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">
             住んでいる場所から適した企業を紹介
@@ -247,8 +242,8 @@ const pageDescription =
         <li>
           <img
             class="aspect-3/2 w-full rounded-2xl object-cover"
-            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-            alt=""
+            src="/images/feature3.jpg"
+            alt="若いドライバーがお客さんを乗せている様子"
           />
           <h3 class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900">
             月給45万円以上が目指せる求人に厳選

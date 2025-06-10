@@ -9,6 +9,7 @@ export default defineConfig({
   trailingSlash: 'always',
 
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+    envPrefix: ['WEBHOOK_'],
+  },
 });

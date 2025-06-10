@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getJobsFromNotion } from '../../lib/notion.js';
 import CTA from '../../components/CTA.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const pageUrl = 'https://taxi-mate.jp/jobs/';
 const pageTitle = '求人一覧｜タクシーメイト';
@@ -20,11 +21,11 @@ const jobsCount = jobs.length;
     <meta property="og:description" content={pageDescription} />
   </Fragment>
 
+  <Breadcrumb pageName={pageTitle} />
+
   <!-- 求人一覧 -->
   <div class="bg-white">
-    <div
-      class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
-    >
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
       <h2 class="sr-only">求人一覧</h2>
 
       <div
@@ -38,14 +39,35 @@ const jobsCount = jobs.length;
             return (
               <a href={detailUrl} class="group">
                 <img
-                  src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg"
+                  src="/images/banner-square.png"
                   alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                   class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
                 />
-                <h3 class="mt-4 text-sm text-gray-700">{job.company}</h3>
-                <p class="mt-1 text-lg font-medium text-gray-900">
+                <p class="mt-3 text-xs font-medium flex items-center gap- text-gray-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-4 text-gray-700 mr-0.5"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
                   {job.headOffice}
                 </p>
+                <h3 class="text-lg font-semibold text-gray-900">
+                  {job.company}
+                </h3>
+                <div class="mt-1 flex flex-wrap gap-1">
+                  {job.dispatchApps.map((app: string) => (
+                    <span class="inline-block text-xs rounded-full bg-gray-50 px-2 py-1 font-medium text-gray-600 hover:bg-gray-100">
+                      {app}
+                    </span>
+                  ))}
+                </div>
               </a>
             );
           })
@@ -64,45 +86,4 @@ const jobsCount = jobs.length;
   </div>
 
   <CTA />
-
-  <!-- ループ表示用 -->
-  {
-    jobs.map((job, index) => {
-      const slug = `job-${index + 1}`;
-      const detailUrl = `/jobs/${slug}/`;
-
-      return (
-        <div class="job-card" key={job.id}>
-          <h2>{job.company}</h2>
-          <p>
-            <strong>ID:</strong> {job.id}
-          </p>
-          <p>
-            <strong>タイトル:</strong> <a href={detailUrl}>{job.title}</a>
-          </p>
-          <p>
-            <strong>勤務地:</strong> {job.location}
-          </p>
-          <p>
-            <strong>グループ:</strong> {job.group.join(', ')}
-          </p>
-          <p>
-            <strong>募集状況:</strong> {job.status}
-          </p>
-          <p>
-            <strong>配車アプリ:</strong> {job.dispatchApps.join(', ')}
-          </p>
-          <p>
-            <strong>本社住所:</strong> {job.headOffice}
-          </p>
-          <p>
-            <strong>Notion URL:</strong>{' '}
-            <a href={job.notionUrl} target="_blank">
-              {job.notionUrl}
-            </a>
-          </p>
-        </div>
-      );
-    })
-  }
 </BaseLayout>

@@ -215,6 +215,8 @@
     const closeMenuButton = document.getElementById('close-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
+    if (!mobileMenuButton || !closeMenuButton || !mobileMenu) return;
+
     mobileMenuButton.addEventListener('click', function () {
       mobileMenu.classList.remove('hidden');
       mobileMenuButton.setAttribute('aria-expanded', 'true');

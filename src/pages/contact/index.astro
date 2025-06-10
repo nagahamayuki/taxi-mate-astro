@@ -19,10 +19,11 @@ const pageDescription =
   <!-- ヘッダーセクション -->
   <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
     <img
-      src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-      alt=""
+      src="/images/background2.jpg"
+      alt="タクシーメイトの背景画像"
       class="absolute inset-0 -z-10 size-full object-cover"
     />
+    <div class="absolute inset-0 -z-10 bg-white/30 backdrop-blur-xs"></div>
     <div
       class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
       aria-hidden="true"
@@ -46,12 +47,12 @@ const pageDescription =
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:mx-0">
         <h2
-          class="text-5xl font-semibold tracking-tight text-white sm:text-7xl"
+          class="text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl"
         >
           メールで求人を受け取る
         </h2>
         <p
-          class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8"
+          class="mt-8 text-lg font-medium text-pretty text-gray-700 sm:text-xl/8"
         >
           東京都内のタクシー会社を知り尽くした担当者が、条件にマッチしたまずは1社を紹介します。お問い合わせ後、土日、祝日、年末年始を除く1営業日以内にまずはメールにてご連絡させていただきます。
         </p>
@@ -195,30 +196,26 @@ const pageDescription =
           </p>
         </form>
         <div class="lg:mt-6 lg:w-80 lg:flex-none">
-          <img
-            class="h-12 w-auto"
-            src="https://tailwindcss.com/plus-assets/img/logos/workcation-logo-indigo-600.svg"
-            alt=""
-          />
           <figure class="mt-10">
-            <blockquote class="text-lg/8 font-semibold text-gray-900">
+            <blockquote class="text-sm font-semibold text-gray-900">
               <p>
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                expedita voluptas culpa sapiente alias molestiae. Numquam
-                corrupti in laborum sed rerum et corporis."
+                "前職から比べて、月給15万円のアップに成功しました。
+                タクシーメイトで転職支援を受けましたが、業界の説明から始まり、
+                紹介先の会社の良いところも悪いところも正直に教えてくれたり、
+                働き手の立場になって転職相談に乗ってくれたので非常に助かりました。"
               </p>
             </blockquote>
-            <figcaption class="mt-10 flex gap-x-6">
+            <figcaption class="mt-4 flex items-center gap-x-3">
               <img
-                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=96&h=96&q=80"
+                src="/images/profile.jpg"
                 alt=""
-                class="size-12 flex-none rounded-full bg-gray-50"
+                class="size-18 flex-none rounded-full bg-gray-50"
               />
-              <div>
+              <div class="flex flex-col gap-y-0.5">
                 <div class="text-base font-semibold text-gray-900">
-                  Brenna Goyette
+                  30代男性
                 </div>
-                <div class="text-sm/6 text-gray-600">CEO of Workcation</div>
+                <div class="text-sm/6 text-gray-600">前職：営業職</div>
               </div>
             </figcaption>
           </figure>

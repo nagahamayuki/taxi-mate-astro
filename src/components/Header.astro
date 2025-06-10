@@ -1,80 +1,187 @@
 <header class="bg-white sticky top-0 left-0 right-0 z-50 shadow-md">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 sm:p-5 md:p-6 lg:px-8" aria-label="Global">
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between p-4 sm:p-5 md:p-6 lg:px-6"
+    aria-label="Global"
+  >
     <!-- 左側：ロゴ -->
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">タクシーメイト</span>
-        <img class="h-8 w-auto" src="/logo.png" alt="タクシーメイト">
+        <img class="h-12 w-auto" src="/logo.png" alt="タクシーメイト" />
       </a>
     </div>
 
     <!-- モバイル用メニューボタン -->
     <div class="flex items-center gap-4 lg:hidden">
       <!-- スマホサイズでも表示する電話リンク（シンプル版） -->
-      <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu">
+      <button
+        type="button"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+        id="mobile-menu-button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
         <span class="sr-only">メニューを開く</span>
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
     </div>
 
     <!-- デスクトップ用ナビゲーション -->
     <div class="hidden lg:flex lg:gap-x-10">
-      <a href="/about/" class="text-sm font-semibold text-gray-900 hover:text-gray-600">タクシーメイトとは？</a>
-      <a href="/jobs/" class="text-sm font-semibold text-gray-900 hover:text-gray-600">求人一覧</a>
-      <a href="/contact/" class="text-sm font-semibold text-gray-900 hover:text-gray-600">求人を受け取る</a>
-      <a href="/lp-1/" class="text-sm font-semibold text-gray-900 hover:text-gray-600">転職支援サービスに登録</a>
+      <a
+        href="/about/"
+        class="text-sm font-semibold text-gray-900 hover:text-gray-600"
+        >タクシーメイトとは？</a
+      >
+      <a
+        href="/jobs/"
+        class="text-sm font-semibold text-gray-900 hover:text-gray-600"
+        >求人一覧</a
+      >
+      <a
+        href="/contact/"
+        class="text-sm font-semibold text-gray-900 hover:text-gray-600"
+        >求人を受け取る</a
+      >
+      <a
+        href="/lp-1/"
+        class="text-sm font-semibold text-gray-900 hover:text-gray-600 inline-flex items-center gap-1"
+        target="_blank"
+        >転職支援サービスに登録<svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
+        </svg>
+      </a>
     </div>
 
     <!-- 右側：電話リンク（デスクトップ）-->
-    <div class="hidden lg:flex lg:items-center lg:gap-4 lg:flex-1 lg:justify-end">
+    <div
+      class="hidden lg:flex lg:items-center lg:gap-4 lg:flex-1 lg:justify-end"
+    >
       <div class="phone-link rounded-md p-1 inline-flex flex-col text-center">
-        <p class="text-gray-700 text-[10px] leading-tight">お電話のご相談はこちらから</p>
-        <div class="flex items-center justify-center text-green-700 font-semibold">
-          <svg class="h-3.5 w-3.5 mr-1" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        <p class="text-gray-700 text-[12px] leading-tight">
+          お電話のご相談はこちらから
+        </p>
+        <div
+          class="flex items-center justify-center text-green-700 font-semibold"
+        >
+          <svg class="h-5 w-5 mr-0.5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+            ></path>
           </svg>
-          <span class="text-sm">0120-935-196</span>
+          <span>0120-935-196</span>
         </div>
-        <p class="text-gray-600 text-[9px] leading-tight">平日 10:00-19:00</p>
+        <p class="text-gray-600 text-[10px] leading-tight">平日 10:00-19:00</p>
       </div>
     </div>
   </nav>
 
   <!-- モバイル用メニュー -->
-  <div class="lg:hidden hidden" id="mobile-menu" role="dialog" aria-modal="true">
+  <div
+    class="lg:hidden hidden"
+    id="mobile-menu"
+    role="dialog"
+    aria-modal="true"
+  >
     <div class="fixed inset-0 z-10 bg-black bg-opacity-25"></div>
-    <div class="fixed inset-y-0 right-0 z-20 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+    <div
+      class="fixed inset-y-0 right-0 z-20 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+    >
       <div class="flex items-center justify-between">
         <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">タクシーメイト</span>
-          <img class="h-8 w-auto" src="/logo.png" alt="タクシーメイト">
+          <img class="h-8 w-auto" src="/logo.png" alt="タクシーメイト" />
         </a>
-        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" id="close-menu-button">
+        <button
+          type="button"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700"
+          id="close-menu-button"
+        >
           <span class="sr-only">メニューを閉じる</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="py-6 space-y-2">
-            <a href="/" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">ホーム</a>
-            <a href="/about/" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">タクシーメイトとは？</a>
-            <a href="/jobs/" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">求人一覧</a>
-            <a href="/contact/" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">求人を受け取る</a>
-            <a href="/lp-1/" class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">転職支援サービスに登録</a>
+            <a
+              href="/"
+              class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+              >ホーム</a
+            >
+            <a
+              href="/about/"
+              class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+              >タクシーメイトとは？</a
+            >
+            <a
+              href="/jobs/"
+              class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+              >求人一覧</a
+            >
+            <a
+              href="/contact/"
+              class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+              >求人を受け取る</a
+            >
+            <a
+              href="/lp-1/"
+              class="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+              >転職支援サービスに登録</a
+            >
           </div>
-          
+
           <!-- モバイルメニュー内の電話リンク -->
           <div class="py-4">
-            <div class="rounded-lg px-3 py-2 bg-green-50 border border-green-200 text-center">
-              <p class="text-gray-700 text-sm mb-1">お電話のご相談はこちらから</p>
-              <div class="flex items-center justify-center text-green-700 font-semibold">
-                <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            <div
+              class="rounded-lg px-3 py-2 bg-green-50 border border-green-200 text-center"
+            >
+              <p class="text-gray-700 text-sm mb-1">
+                お電話のご相談はこちらから
+              </p>
+              <div
+                class="flex items-center justify-center text-green-700 font-semibold"
+              >
+                <svg
+                  class="h-5 w-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  ></path>
                 </svg>
                 <span class="text-lg">0120-935-196</span>
               </div>
@@ -89,17 +196,17 @@
 
 <script>
   // モバイルメニューの開閉機能
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const closeMenuButton = document.getElementById('close-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuButton.addEventListener('click', function() {
+
+    mobileMenuButton.addEventListener('click', function () {
       mobileMenu.classList.remove('hidden');
       mobileMenuButton.setAttribute('aria-expanded', 'true');
     });
-    
-    closeMenuButton.addEventListener('click', function() {
+
+    closeMenuButton.addEventListener('click', function () {
       mobileMenu.classList.add('hidden');
       mobileMenuButton.setAttribute('aria-expanded', 'false');
     });

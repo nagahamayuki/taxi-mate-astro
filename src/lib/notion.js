@@ -61,3 +61,42 @@ export async function getLatestJobsFromNotion() {
     };
   });
 }
+
+export async function getJobByIdFromNotion(jobId) {
+  const response = await notion.pages.retrieve({
+    page_id: jobId,
+  });
+
+  return {
+    id: response.id,
+    title:
+      response.properties['No.']?.title?.[0]?.plain_text || '求人タイトルなし',
+    company: response.properties['会社名']?.rich_text?.[0]?.plain_text || '',
+    location:
+      response.properties['営業所（勤務地）']?.rich_text?.[0]?.plain_text || '',
+    group:
+      response.properties['グループ']?.multi_select?.map((opt) => opt.name) ||
+      [],
+    status: response.properties['募集状況']?.select?.name || '',
+    dispatchApps:
+      response.properties['配車アプリ・無線']?.multi_select?.map(
+        (opt) => opt.name,
+      ) || [],
+    headOffice: response.properties['本社']?.rich_text?.[0]?.plain_text || '',
+    // 追加項目
+    features: response.properties['特徴']?.rich_text?.[0]?.plain_text || '',
+    departureTime:
+      response.properties['出庫時間']?.rich_text?.[0]?.plain_text || '',
+    trainingPeriod:
+      response.properties['研修期間について']?.rich_text?.[0]?.plain_text || '',
+    workingHours:
+      response.properties['隔勤の実働時間']?.rich_text?.[0]?.plain_text || '',
+    commuteMethods:
+      response.properties['通勤手段']?.multi_select?.map((opt) => opt.name) ||
+      [],
+    jobName: response.properties['求人名']?.rich_text?.[0]?.plain_text || '',
+    salaryGuarantee:
+      response.properties['給与保証について']?.rich_text?.[0]?.plain_text || '',
+    notionUrl: response.public_url || response.url,
+  };
+}

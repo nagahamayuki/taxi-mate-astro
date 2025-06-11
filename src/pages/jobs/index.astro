@@ -80,7 +80,7 @@ const jobsCount = jobs.length;
 
             return (
               <a
-                href={`/jobs/${job.id}`}
+                href={`/jobs/${job.id}/`}
                 class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 sm:pt-48 lg:pt-80"
               >
                 <img
@@ -109,6 +109,7 @@ const jobsCount = jobs.length;
                       </div>
                     </div>
                   )}
+                  <span class="mr-8">{job.company}</span>
                   <span class="mr-8">{job.location}</span>
                 </div>
               </a>

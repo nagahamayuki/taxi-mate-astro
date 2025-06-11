@@ -3,8 +3,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 
 const pageUrl = 'https://taxi-mate.jp/contact/thanks/';
-const pageTitle = '送信完了';
+const pageTitle = '送信ありがとうございました';
 const pageDescription = 'お問い合わせありがとうございます。';
+
+const breadcrumbItems = [
+  { name: 'メールで求人を受け取る', href: '/contact/' },
+  { name: pageTitle, href: '#' },
+];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} url={pageUrl}>
@@ -15,13 +20,13 @@ const pageDescription = 'お問い合わせありがとうございます。';
     <meta property="og:description" content={pageDescription} />
   </Fragment>
 
-  <Breadcrumb pageName={pageTitle} />
+  <Breadcrumb items={breadcrumbItems} />
 
   <!-- 完了メッセージセクション -->
   <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
     <div class="mx-auto max-w-2xl text-center">
       <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-        送信完了
+        送信ありがとうございました
       </h2>
       <p class="mt-6 text-lg leading-8 text-gray-600">
         お問い合わせありがとうございます。<br />

@@ -1,9 +1,17 @@
 ---
 interface Props {
-  pageName: string;
+  pageName?: string;
+  items?: {
+    name: string;
+    href: string;
+  }[];
 }
 
-const { pageName } = Astro.props;
+const { pageName, items } = Astro.props;
+
+// 後方互換性のために、pageNameが提供された場合はitemsに変換
+const breadcrumbItems =
+  items || (pageName ? [{ name: pageName, href: '#' }] : []);
 ---
 
 <div class="bg-white">
@@ -27,31 +35,38 @@ const { pageName } = Astro.props;
                   d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
                 ></path>
               </svg>
-
               <span class="sr-only">Home</span>
             </a>
           </div>
         </li>
-        <li>
-          <div class="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-4 text-gray-700"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
-            </svg>
-            <a href="#" class="ml-4 text-sm font-semibold text-gray-700"
-              >{pageName}</a
-            >
-          </div>
-        </li>
+        {
+          breadcrumbItems.map((item, index) => (
+            <li>
+              <div class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4 text-gray-700"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+                <a
+                  href={item.href}
+                  class="ml-4 text-sm font-semibold text-gray-700 hover:text-gray-800"
+                >
+                  {item.name}
+                </a>
+              </div>
+            </li>
+          ))
+        }
       </ol>
     </nav>
   </div>

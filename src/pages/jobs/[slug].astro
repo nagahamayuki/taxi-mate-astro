@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getJobsFromNotion, getJobByIdFromNotion } from '../../lib/notion.js';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 export async function getStaticPaths() {
   const jobs = await getJobsFromNotion();
@@ -67,6 +68,13 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
       />
     </div>
   </div>
+
+  <Breadcrumb
+    items={[
+      { name: '求人一覧', href: '/jobs/' },
+      { name: job.company, href: `/jobs/${slug}/` },
+    ]}
+  />
 
   <div class="bg-white">
     <div

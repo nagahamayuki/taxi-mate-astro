@@ -3,6 +3,7 @@ import { Client } from '@notionhq/client';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
+// 求人一覧を取得
 export async function getJobsFromNotion() {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID,
@@ -35,6 +36,7 @@ export async function getJobsFromNotion() {
   });
 }
 
+// 最新の求人3件を取得
 export async function getLatestJobsFromNotion() {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID,
@@ -74,6 +76,7 @@ export async function getLatestJobsFromNotion() {
   });
 }
 
+// 求人詳細を取得（ID指定）
 export async function getJobByIdFromNotion(jobId) {
   const response = await notion.pages.retrieve({
     page_id: jobId,
@@ -110,5 +113,8 @@ export async function getJobByIdFromNotion(jobId) {
     salaryGuarantee:
       response.properties['給与保証について']?.rich_text?.[0]?.plain_text || '',
     notionUrl: response.public_url || response.url,
+    // タイムスタンプ情報を追加
+    created_time: response.created_time,
+    last_edited_time: response.last_edited_time,
   };
 }

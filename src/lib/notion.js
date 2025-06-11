@@ -35,6 +35,8 @@ export async function getJobsFromNotion() {
       // タイムスタンプ情報を追加
       created_time: page.created_time,
       last_edited_time: page.last_edited_time,
+      // カバー画像のURLを追加
+      coverUrl: page.cover?.type === 'file' ? page.cover.file.url : null,
     };
   });
 }
@@ -78,6 +80,8 @@ export async function getLatestJobsFromNotion() {
       // タイムスタンプ情報を追加
       created_time: page.created_time,
       last_edited_time: page.last_edited_time,
+      // カバー画像のURLを追加
+      coverUrl: page.cover?.type === 'file' ? page.cover.file.url : null,
     };
   });
 }
@@ -122,5 +126,7 @@ export async function getJobByIdFromNotion(jobId) {
     // タイムスタンプ情報を追加
     created_time: response.created_time,
     last_edited_time: response.last_edited_time,
+    // カバー画像のURLを追加
+    coverUrl: response.cover?.type === 'file' ? response.cover.file.url : null,
   };
 }

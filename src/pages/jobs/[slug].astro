@@ -33,11 +33,11 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
     class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8"
   >
     <img
-      src="/images/background4.jpg"
+      src={job.coverUrl || '/images/background4.jpg'}
       alt="タクシーが走る背景画像"
       class="absolute inset-0 -z-10 size-full object-cover"
     />
-    <div class="absolute inset-0 -z-10 bg-white/20 backdrop-blur-xs"></div>
+    <div class="absolute inset-0 -z-10 bg-black/50 backdrop-blur-sm"></div>
     <div
       class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
       aria-hidden="true"

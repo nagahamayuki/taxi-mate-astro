@@ -81,7 +81,7 @@ const jobsCount = jobs.length;
             return (
               <a
                 href={`/jobs/${job.id}/`}
-                class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-80 pb-8 sm:pt-48 lg:pt-80"
+                class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-6 pt-36 pb-6 sm:pt-24 lg:pt-36"
               >
                 <img
                   src="/images/banner-square.png"
@@ -91,26 +91,31 @@ const jobsCount = jobs.length;
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
                 <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-gray-900/10 ring-inset" />
 
-                <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
-                  <span class="inline-block text-xs rounded-full bg-gray-50 px-2 py-1 font-medium text-gray-600 mr-2">
-                    {job.status}
-                  </span>
+                <div class="flex flex-col gap-y-2">
+                  <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
+                    <span class="inline-block text-xs rounded-full bg-gray-50 px-2 py-1 font-medium text-gray-600">
+                      {job.status}
+                    </span>
+                  </div>
+
+                  <h3 class="text-lg font-bold text-white">{job.company}</h3>
+
                   {job.dispatchApps && job.dispatchApps.length > 0 && (
-                    <div class="flex items-center gap-x-2">
-                      <span class="text-gray-300 whitespace-nowrap">
+                    <div class="flex flex-col gap-y-1">
+                      <span class="text-gray-300 whitespace-nowrap text-sm">
                         配車アプリ：
                       </span>
-                      <div class="flex flex-wrap gap-1">
+                      <div class="flex flex-wrap items-center gap-1">
                         {job.dispatchApps.map((app: string) => (
-                          <span class="inline-block text-xs rounded-full bg-gray-50 px-2 py-1 font-medium text-gray-600">
+                          <span class="inline-block text-xs rounded-full bg-gray-50 px-2 py-1 font-medium text-gray-600 whitespace-nowrap">
                             {app}
                           </span>
                         ))}
                       </div>
                     </div>
                   )}
-                  <span class="mr-8">{job.company}</span>
-                  <span class="mr-8">{job.location}</span>
+
+                  <p class="text-sm text-gray-300 truncate">{job.location}</p>
                 </div>
               </a>
             );

@@ -140,9 +140,10 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
                 job.features && (
                   <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">特徴</dt>
-                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      {job.features}
-                    </dd>
+                    <dd
+                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
+                      set:html={job.features.replace(/\n/g, '<br>')}
+                    />
                   </div>
                 )
               }
@@ -152,9 +153,10 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
                     <dt class="text-sm/6 font-medium text-gray-900">
                       出庫時間
                     </dt>
-                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      {job.departureTime}
-                    </dd>
+                    <dd
+                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
+                      set:html={job.departureTime.replace(/\n/g, '<br>')}
+                    />
                   </div>
                 )
               }
@@ -164,9 +166,10 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
                     <dt class="text-sm/6 font-medium text-gray-900">
                       研修期間について
                     </dt>
-                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      {job.trainingPeriod}
-                    </dd>
+                    <dd
+                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
+                      set:html={job.trainingPeriod.replace(/\n/g, '<br>')}
+                    />
                   </div>
                 )
               }
@@ -176,9 +179,10 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
                     <dt class="text-sm/6 font-medium text-gray-900">
                       隔勤の実働時間
                     </dt>
-                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      {job.workingHours}
-                    </dd>
+                    <dd
+                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
+                      set:html={job.workingHours.replace(/\n/g, '<br>')}
+                    />
                   </div>
                 )
               }
@@ -200,9 +204,10 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
                     <dt class="text-sm/6 font-medium text-gray-900">
                       給与保証について
                     </dt>
-                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      {job.salaryGuarantee}
-                    </dd>
+                    <dd
+                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
+                      set:html={job.salaryGuarantee.replace(/\n/g, '<br>')}
+                    />
                   </div>
                 )
               }

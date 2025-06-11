@@ -80,147 +80,133 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
         <section aria-labelledby="job-details-heading" class="lg:col-span-7">
           <h2 id="job-details-heading" class="sr-only">求人詳細</h2>
           <!-- 求人詳細 -->
-          <div class="mt-6">
-            <div>
-              <div class="px-4 sm:px-0">
-                <h3 class="text-base/7 font-semibold text-gray-900">
-                  {job.company}
-                </h3>
-                <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">
-                  {job.location}
-                </p>
-              </div>
-              <div class="mt-6 border-t border-gray-100">
-                <dl class="divide-y divide-gray-100">
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+          <div class="mt-6 border-b border-gray-100">
+            <dl class="divide-y divide-gray-100">
+              {
+                job.company && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm/6 font-medium text-gray-900">会社名</dt>
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {job.company}
+                    </dd>
+                  </div>
+                )
+              }
+              {
+                job.headOffice && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">本社</dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
                       {job.headOffice}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.location && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">営業所</dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
                       {job.location}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.group && job.group.length > 0 && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">
                       グループ
                     </dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
-                      {job.group}
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {job.group.join(', ')}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.dispatchApps && job.dispatchApps.length > 0 && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">
                       配車アプリ
                     </dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
-                      {job.dispatchApps}
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {job.dispatchApps.join(', ')}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.features && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">特徴</dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
                       {job.features}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.departureTime && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">
                       出庫時間
                     </dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
                       {job.departureTime}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.trainingPeriod && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">
                       研修期間について
                     </dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
                       {job.trainingPeriod}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.workingHours && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">
                       隔勤の実働時間
                     </dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
                       {job.workingHours}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.commuteMethods && job.commuteMethods.length > 0 && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">
                       通勤手段
                     </dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
-                      {job.commuteMethods}
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {job.commuteMethods.join(', ')}
                     </dd>
                   </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
-                    <dt class="text-sm/6 font-medium text-gray-900">
-                      通勤手段
-                    </dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
-                      {job.commuteMethods}
-                    </dd>
-                  </div>
-                  <div
-                    class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"
-                  >
+                )
+              }
+              {
+                job.salaryGuarantee && (
+                  <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">
                       給与保証について
                     </dt>
-                    <dd
-                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
-                    >
+                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
                       {job.salaryGuarantee}
                     </dd>
                   </div>
-                </dl>
-              </div>
-            </div>
+                )
+              }
+            </dl>
           </div>
         </section>
 

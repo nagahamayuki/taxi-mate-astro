@@ -51,6 +51,21 @@ const {
     <!-- favicon関連 -->
     <link rel="shortcut icon" href="/images/favicon.ico" />
 
+    <!-- OGP設定 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content="/images/ogimage.png" />
+    <meta property="og:site_name" content="タクシーメイト" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card設定 -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/ogimage.png" />
+
     <!-- 下記は各ページから固有のhead要素を受け取るためのタグ -->
     <slot name="head" />
   </head>

@@ -61,9 +61,10 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
       <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">
         {job.company}
       </h2>
-      <p class="mt-8 text-lg font-medium text-pretty text-white sm:text-xl/8">
-        {job.location}
-      </p>
+      <p
+        class="mt-8 text-lg font-medium text-pretty text-white sm:text-xl/8"
+        set:html={job.location.replace(/\n/g, '<br>')}
+      />
     </div>
   </div>
 
@@ -72,7 +73,7 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
       class="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8"
     >
       <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-        {job.company}
+        {job.jobName || job.company}
       </h1>
       <div
         class="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16"
@@ -96,9 +97,10 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
                 job.headOffice && (
                   <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">本社</dt>
-                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      {job.headOffice}
-                    </dd>
+                    <dd
+                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
+                      set:html={job.headOffice.replace(/\n/g, '<br>')}
+                    />
                   </div>
                 )
               }
@@ -106,9 +108,10 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
                 job.location && (
                   <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm/6 font-medium text-gray-900">営業所</dt>
-                    <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      {job.location}
-                    </dd>
+                    <dd
+                      class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"
+                      set:html={job.location.replace(/\n/g, '<br>')}
+                    />
                   </div>
                 )
               }

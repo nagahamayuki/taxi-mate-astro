@@ -55,7 +55,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/animatecss/3.5.2/animate.min.css"
     />
-    <link rel="canonical" href="https://taxi-mate.jp/lp-1/" />
+    <link rel="canonical" href="https://taxi-mate.jp/lp-2/" />
     <!-- /taxi-mate.jp, /taxi-mate.jp/index.html でアクセスされても /taxi-mate.jp/ が正規だという記載 -->
 
     <!-- 第三者コードのブロックパフォーマンス向上 -->
@@ -104,32 +104,7 @@
     </header>
 
     <main id="main" class="mainpage">
-      <!-- <div class="first" id="first">
-			<div class="first-question">
-				<span></span>
-				<p>タクシー会社での勤務経験はありますか？</p>
-			</div>
-			<div class="first-button1" id="first-button1" data-index="1" onclick="toggleDivs(this)">
-				<p id="first-button1-content">勤務経験がある</p>
-				<span></span>
-			</div>
-			<div class="first-button2" data-index="2" onclick="toggleDivs(this)">
-				<p id="first-button2-content">勤務したことがない</p>
-				<span></span>
-			</div>
-			<div class="common-description mt-30 mb-30">
-				<div class="common-img">
-					<img src="./assets/img/man.png" alt="">
-				</div>
-				<div class="common-des">
-					<div class="description-triangle"></div>
-					<div class="description-text padding-5-7 auto-height">
-						タクシーメイトは無料の転職支援サービスです。転職に成功した多くの方がご登録しています。
-					</div>
-				</div>
-			</div>
-		</div> -->
-      <div class="second" id="second">
+      <div class="step-changing-job-reasons" id="choice_job_reasons">
         <div class="second-head">
           <div class="step-text">
             <p class="step-check">STEP<span class="span-check">1</span></p>
@@ -139,7 +114,6 @@
             <p>STEP<span>5</span></p>
             <p>STEP<span>6</span></p>
             <p>STEP<span>7</span></p>
-            <p>STEP<span>8</span></p>
           </div>
           <div class="step-car">
             <img src="./assets/img/step-taxi.webp" alt="" />
@@ -153,19 +127,149 @@
             <span class="span-round5"> </span>
             <span class="span-round6"> </span>
             <span class="span-round7"> </span>
-            <span class="span-round8"> </span>
+          </div>
+        </div>
+
+        <div class="common-title">
+          <span></span>
+          <p class="choice_job_reasons_title">
+            タクシー業界に転職する魅力として、特に強く感じているものはどれですか？(複数回答可)
+          </p>
+        </div>
+
+        <div class="four-options">
+          <div id="nextImgFourth" class="next-img-four">
+            <img src="./assets/img/arrow-left.webp" alt="" />
+          </div>
+          <div
+            class="option-one bg-white"
+            id="f1"
+            data-index="1"
+            data-value="年収を上げることができる"
+            onclick="Choice_job_reasons_Click(this)"
+          >
+            年収を上げることができる
+          </div>
+          <div
+            class="option-one bg-white"
+            id="f2"
+            data-index="2"
+            data-value="自分のペースで仕事ができる"
+            onclick="Choice_job_reasons_Click(this)"
+          >
+            自分のペースで仕事ができる
+          </div>
+          <div
+            class="option-one bg-white"
+            id="f3"
+            data-index="3"
+            data-value="やりがいを感じることができる"
+            onclick="Choice_job_reasons_Click(this)"
+          >
+            やりがいを感じることができる
+          </div>
+          <div
+            class="option-one bg-white"
+            id="f4"
+            data-index="4"
+            data-value="年齢問わず仕事ができる"
+            onclick="Choice_job_reasons_Click(this)"
+          >
+            年齢問わず仕事ができる
+          </div>
+          <div
+            class="option-one bg-white"
+            id="f5"
+            data-index="5"
+            data-value="正社員として働くことができる"
+            onclick="Choice_job_reasons_Click(this)"
+          >
+            正社員として働くことができる
+          </div>
+          <div
+            class="option-one bg-white"
+            id="f6"
+            data-index="6"
+            data-value="副業ができる"
+            onclick="Choice_job_reasons_Click(this)"
+          >
+            副業ができる
+          </div>
+          <div
+            class="option-one bg-white"
+            id="f7"
+            data-index="7"
+            data-value="自宅の近くで働くことができる"
+            onclick="Choice_job_reasons_Click(this)"
+          >
+            自宅の近くで働くことができる
+          </div>
+        </div>
+
+        <div class="common-description mt-30 mb-30">
+          <div class="common-img">
+            <img src="./assets/img/stuff.webp" alt="" />
+          </div>
+          <div class="common-des">
+            <div class="description-triangle"></div>
+            <div class="description-text padding-5-7">
+              タクシーメイトは無料の転職支援サービスです。転職に成功した多くの方がご登録しています。
+            </div>
+          </div>
+        </div>
+
+        <div class="next">
+          <!-- <span
+            class="next-button first-child"
+            id="third-before"
+            onclick="gotoThird()"
+            >< 戻る</span
+          > -->
+
+          <span
+            class="next-button disabled"
+            id="choice_job_reasons_next_button"
+            onclick="ChoiceJobReasonsNextStep()"
+            >次へ</span
+          >
+        </div>
+      </div>
+
+      <div class="step-license" id="license">
+        <div class="second-head">
+          <div class="step-text">
+            <p>STEP<span>1</span></p>
+            <p class="step-check">STEP<span class="span-check">2</span></p>
+            <p>STEP<span>3</span></p>
+            <p>STEP<span>4</span></p>
+            <p>STEP<span>5</span></p>
+            <p>STEP<span>6</span></p>
+            <p>STEP<span>7</span></p>
+          </div>
+          <div class="step-car">
+            <img src="./assets/img/step-taxi.webp" alt="" />
+          </div>
+          <div class="step-road">
+            <p class="road-bar"></p>
+            <span class="span-round1"> </span>
+            <span class="span-round2"> </span>
+            <span class="span-round3"> </span>
+            <span class="span-round4"> </span>
+            <span class="span-round5"> </span>
+            <span class="span-round6"> </span>
+            <span class="span-round7"> </span>
           </div>
         </div>
         <div class="common-title">
           <span></span>
-          <p>まずは保有している免許を教えてください</p>
+          <p>次に、保有している免許を教えてください</p>
         </div>
         <div class="second-three-check">
           <div class="second-three-check-one">
             <div
               class="red-taxi bg-white"
               id="redtaxi"
-              onclick="secondCheck1()"
+              onclick="licenseClick1()"
             >
               <img src="./assets/img/car.webp" alt="" />
               <span id="red-taxi">普通免許</span>
@@ -173,7 +277,7 @@
             <div
               class="black-taxi bg-white"
               id="blacktaxi"
-              onclick="secondCheck2()"
+              onclick="licenseClick2()"
             >
               <img src="./assets/img/taxi.webp" alt="" />
               <span id="black-taxi">二種免許</span>
@@ -182,7 +286,7 @@
           <div
             class="no-license bg-white"
             id="nolicense"
-            onclick="secondCheck3()"
+            onclick="licenseClick3()"
           >
             <img src="./assets/img/nolicense.webp" width="80px" alt="" />
             <span id="no-license">免許は持っていない</span>
@@ -198,39 +302,32 @@
           <div class="common-des">
             <div class="description-triangle"></div>
             <div class="description-text padding-5-7">
-              タクシーメイトは無料の転職支援サービスです。転職に成功した多くの方がご登録しています。
+              普通免許取得後3年以上経過している方は、応募可能な求人が多くなります。
             </div>
           </div>
         </div>
-        <!-- <div class="common-description">
-				<div class="common-img">
-					<img src="./assets/img/man.png" alt="">
-				</div>
-				<div class="common-des">
-					<div class="description-triangle"></div>
-					<div class="description-text">
-						「二種免許の取得費⽤」を出している<br>タクシー会社をご紹介します。
-					</div>
-				</div>
-			</div> -->
-        <!-- <div class="next-second">
-				<span class="next-button" id="second-before" onclick="gotoFirst()">< 戻る</span>
-
-			</div> -->
+        <div class="license_back">
+          <span
+            class="next-button first-child"
+            id="license_back_button"
+            onclick="LicenseBackStep()"
+            >< 戻る</span
+          >
+        </div>
       </div>
-      <div class="third" id="third">
+
+      <div class="step-changing-jobs-time" id="changing_jobs_time">
         <div class="second-head">
           <div class="step-text">
             <p>STEP<span>1</span></p>
-            <p class="step-check">STEP<span class="span-check">2</span></p>
-            <p>STEP<span>3</span></p>
+            <p>STEP<span>2</span></p>
+            <p class="step-check">STEP<span class="span-check">3</span></p>
             <p>STEP<span>4</span></p>
             <p>STEP<span>5</span></p>
             <p>STEP<span>6</span></p>
             <p>STEP<span>7</span></p>
-            <p>STEP<span>8</span></p>
           </div>
-          <div class="step-car-third">
+          <div class="step-car">
             <img src="./assets/img/step-taxi.webp" alt="" />
           </div>
           <div class="step-road">
@@ -242,7 +339,6 @@
             <span class="span-round5"> </span>
             <span class="span-round6"> </span>
             <span class="span-round7"> </span>
-            <span class="span-round8"> </span>
           </div>
         </div>
 
@@ -257,7 +353,7 @@
               class="third-cycle bg-white"
               data-index="1"
               data-value="退職済み"
-              onclick="thirdCheck(this)"
+              onclick="ChangingJobsTimeClick(this)"
             >
               <span class="third-span">退職済み</span>
             </div>
@@ -265,7 +361,7 @@
               class="third-cycle bg-white"
               data-index="2"
               data-value="今月中に退職"
-              onclick="thirdCheck(this)"
+              onclick="ChangingJobsTimeClick(this)"
             >
               <span class="third-span">今月中に退職</span>
             </div>
@@ -273,7 +369,7 @@
               class="third-cycle bg-white"
               data-index="3"
               data-value="来月以降で退職"
-              onclick="thirdCheck(this)"
+              onclick="ChangingJobsTimeClick(this)"
             >
               <span class="third-span">来月以降で退職</span>
             </div>
@@ -281,160 +377,37 @@
               class="third-cycle bg-white"
               data-index="4"
               data-value="退職日は未定"
-              onclick="thirdCheck(this)"
+              onclick="ChangingJobsTimeClick(this)"
             >
               <span class="third-span">退職日は未定</span>
             </div>
-            <div
-              class="third-cycle bg-white"
-              data-index="5"
-              data-value="退職はまだ考えていない"
-              onclick="thirdCheck(this)"
-            >
-              <span class="third-span">退職はまだ考えていない</span>
-            </div>
-            <div class="next-img-third">
+            <div id="nextImgThird" class="next-img-third">
               <img src="./assets/img/arrow-left.webp" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="common-description mt-30 mb-30">
+          <div class="common-img">
+            <img src="./assets/img/stuff.webp" alt="" />
+          </div>
+          <div class="common-des">
+            <div class="description-triangle"></div>
+            <div class="description-text padding-5-7">
+              あなたにぴったりな転職先のご提案をさせていただきます。面接対策も実施しています。
             </div>
           </div>
         </div>
         <div class="next-third">
           <span
             class="next-button first-child"
-            id="third-before"
-            onclick="gotoSecond()"
+            id="changing_jobs_time_back_button"
+            onclick="ChangingJobsTimeBackStep()"
             >< 戻る</span
           >
         </div>
       </div>
-      <div class="fourth" id="four">
-        <div class="second-head">
-          <div class="step-text">
-            <p>STEP<span>1</span></p>
-            <p>STEP<span>2</span></p>
-            <p class="step-check">STEP<span class="span-check">3</span></p>
-            <p>STEP<span>4</span></p>
-            <p>STEP<span>5</span></p>
-            <p>STEP<span>6</span></p>
-            <p>STEP<span>7</span></p>
-            <p>STEP<span>8</span></p>
-          </div>
-          <div class="step-car-four">
-            <img src="./assets/img/step-taxi.webp" alt="" />
-          </div>
-          <div class="step-road">
-            <p class="road-bar"></p>
-            <span class="span-round1"> </span>
-            <span class="span-round2"> </span>
-            <span class="span-round3"> </span>
-            <span class="span-round4"> </span>
-            <span class="span-round5"> </span>
-            <span class="span-round6"> </span>
-            <span class="span-round7"> </span>
-            <span class="span-round8"> </span>
-          </div>
-        </div>
 
-        <div class="common-title">
-          <span></span>
-          <p>今回の転職理由について教えてください(複数)</p>
-        </div>
-
-        <div class="four-options">
-          <div class="next-img-four">
-            <img src="./assets/img/arrow-left.webp" alt="" />
-          </div>
-          <div
-            class="option-one bg-white"
-            id="f1"
-            data-index="1"
-            data-value="収入を上げたいから"
-            onclick="fourClick(this)"
-          >
-            収入を上げたいから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="f2"
-            data-index="2"
-            data-value="自分のペースで仕事をしたいから"
-            onclick="fourClick(this)"
-          >
-            自分のペースで仕事をしたいから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="f3"
-            data-index="3"
-            data-value="もっとやりがいを感じる仕事をしたいから"
-            onclick="fourClick(this)"
-          >
-            もっとやりがいを感じる仕事をしたいから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="f4"
-            data-index="4"
-            data-value="正社員になりたいから"
-            onclick="fourClick(this)"
-          >
-            正社員になりたいから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="f5"
-            data-index="5"
-            data-value="副業ができる会社で働きたいから"
-            onclick="fourClick(this)"
-          >
-            副業ができる会社で働きたいから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="f6"
-            data-index="6"
-            data-value="自宅から近い会社で働きたいから"
-            onclick="fourClick(this)"
-          >
-            自宅から近い会社で働きたいから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="f7"
-            data-index="7"
-            data-value="今の仕事を中長期的に続けるイメージができないから"
-            onclick="fourClick(this)"
-          >
-            今の仕事を中長期的に続けるイメージができないから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="f8"
-            data-index="8"
-            data-value="人間関係に疲れてしまったから"
-            onclick="fourClick(this)"
-          >
-            人間関係に疲れてしまったから
-          </div>
-        </div>
-
-        <div class="next">
-          <span
-            class="next-button first-child"
-            id="third-before"
-            onclick="gotoThird()"
-            >< 戻る</span
-          >
-
-          <span
-            class="next-button disabled"
-            id="four-next"
-            onclick="fourHidden()"
-            >次へ</span
-          >
-        </div>
-      </div>
-      <div class="fifth" id="five">
+      <div class="step-commute-ways" id="commute_ways">
         <div class="second-head">
           <div class="step-text">
             <p>STEP<span>1</span></p>
@@ -444,9 +417,8 @@
             <p>STEP<span>5</span></p>
             <p>STEP<span>6</span></p>
             <p>STEP<span>7</span></p>
-            <p>STEP<span>8</span></p>
           </div>
-          <div class="step-car-five">
+          <div class="step-car">
             <img src="./assets/img/step-taxi.webp" alt="" />
           </div>
           <div class="step-road">
@@ -458,155 +430,15 @@
             <span class="span-round5"> </span>
             <span class="span-round6"> </span>
             <span class="span-round7"> </span>
-            <span class="span-round8"> </span>
           </div>
         </div>
-        <div class="common-title-five">
-          <span></span>
-          <div class="five-title">
-            タクシー業界に感じている魅⼒について教えてください(複数)
-          </div>
-        </div>
-
-        <div class="four-options">
-          <div
-            class="option-one bg-white"
-            id="five1"
-            data-index="1"
-            data-value="年収が高いから"
-            onclick="fiveClick(this)"
-          >
-            年収が高いから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="five2"
-            data-index="2"
-            data-value="自分のペースで仕事ができるから"
-            onclick="fiveClick(this)"
-          >
-            自分のペースで仕事ができるから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="five3"
-            data-index="3"
-            data-value="人の役に立っている感覚をもてるから"
-            onclick="fiveClick(this)"
-          >
-            人の役に立っている感覚をもてるから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="five4"
-            data-index="4"
-            data-value="シフト制で勤務に融通が効きそうだから"
-            onclick="fiveClick(this)"
-          >
-            シフト制で勤務に融通が効きそうだから
-          </div>
-          <div
-            class="option-one bg-white"
-            id="five5"
-            data-index="5"
-            data-value="年齢を重ねても仕事を続けられそうだから"
-            onclick="fiveClick(this)"
-          >
-            年齢を重ねても仕事を続けられそうだから
-          </div>
-          <div class="next-img-five">
-            <img src="./assets/img/arrow-left.webp" alt="" />
-          </div>
-        </div>
-
-        <!-- <div class="common-description">
-				<div class="common-img">
-					<img src="./assets/img/man.png" alt="">
-				</div>
-				<div class="common-des">
-					<div class="description-triangle"></div>
-					<div class="description-text">
-						「明確な条件がある⼈ほどご希望に<br>合ったタクシー会社を選びます。
-					</div>
-				</div>
-			</div> -->
-        <div class="next">
-          <span
-            class="next-button first-child"
-            id="five-before"
-            onclick="gotoFour()"
-            >< 戻る</span
-          >
-
-          <span
-            class="next-button disabled"
-            id="five-next"
-            onclick="fiveHidden()"
-            >次へ</span
-          >
-        </div>
-      </div>
-
-      <div class="sixth" id="six">
-        <div class="second-head">
-          <div class="step-text">
-            <p>STEP<span>1</span></p>
-            <p>STEP<span>2</span></p>
-            <p>STEP<span>3</span></p>
-            <p>STEP<span>4</span></p>
-            <p class="step-check">STEP<span class="span-check">5</span></p>
-            <p>STEP<span>6</span></p>
-            <p>STEP<span>7</span></p>
-            <p>STEP<span>8</span></p>
-          </div>
-          <div class="step-car-six">
-            <img src="./assets/img/step-taxi.webp" alt="" />
-          </div>
-          <div class="step-road">
-            <p class="road-bar"></p>
-            <span class="span-round1"> </span>
-            <span class="span-round2"> </span>
-            <span class="span-round3"> </span>
-            <span class="span-round4"> </span>
-            <span class="span-round5"> </span>
-            <span class="span-round6"> </span>
-            <span class="span-round7"> </span>
-            <span class="span-round8"> </span>
-          </div>
-        </div>
-        <!-- <div class="common-title">
-				<span></span>
-				<p>お住まいの地域を教えてください</p>
-				<span class="required-tag">必須</span>
-			</div>
-			<div class="sixth-one">
-				<div class="next-img-six">
-					<img src="./assets/img/arrow-left.webp" alt="">
-				</div>
-				<div class="option-one bg-white" id="sixArea1" data-index="1" data-value="東京都" onclick="sixAreaClick(this)">東京都</div>
-				<div class="option-one bg-white" id="sixArea2" data-index="2" data-value="神奈川県" onclick="sixAreaClick(this)">神奈川県</div>
-				<div class="option-one bg-white" id="sixArea3" data-index="3" data-value="埼⽟県" onclick="sixAreaClick(this)">埼⽟県</div>
-				<div class="option-one bg-white" id="sixArea4" data-index="4" data-value="千葉県" onclick="sixAreaClick(this)">千葉県</div>
-				<div class="option-one bg-white" id="sixArea5" data-index="5" data-value="その他の地域" onclick="sixAreaClick(this)">その他の地域</div>
-			</div> -->
-        <!-- <div class="common-description-six">
-				<div class="common-img">
-					<img src="./assets/img/man.png" alt="">
-				</div>
-				<div class="common-des">
-					<div class="description-triangle"></div>
-					<div class="description-text sixth-des">
-						タクシーメイトでは⽉収45万円以上が⽬指せる求⼈のみを厳選して紹介しているため、⾸都圏エリアの求⼈のみの紹介となりますので予めご了承ください。
-					</div>
-				</div>
-			</div> -->
         <div class="common-title">
           <span></span>
           <p>通勤⼿段について教えてください(全て)</p>
           <span class="required-tag">必須</span>
         </div>
         <div class="sixth-one border-b">
-          <div class="next-img-six">
+          <div id="nextImgSix" class="next-img-six">
             <img src="./assets/img/arrow-left.webp" alt="" />
           </div>
           <div
@@ -614,7 +446,7 @@
             id="sixWay1"
             data-index="1"
             data-value="電車"
-            onclick="sixWayClick(this)"
+            onclick="CommuteWaysClick(this)"
           >
             電車
           </div>
@@ -623,7 +455,7 @@
             id="sixWay2"
             data-index="2"
             data-value="バス"
-            onclick="sixWayClick(this)"
+            onclick="CommuteWaysClick(this)"
           >
             バス
           </div>
@@ -632,7 +464,7 @@
             id="sixWay3"
             data-index="3"
             data-value="自家用車"
-            onclick="sixWayClick(this)"
+            onclick="CommuteWaysClick(this)"
           >
             自家用車
           </div>
@@ -641,7 +473,7 @@
             id="sixWay4"
             data-index="4"
             data-value="バイク"
-            onclick="sixWayClick(this)"
+            onclick="CommuteWaysClick(this)"
           >
             バイク
           </div>
@@ -650,7 +482,7 @@
             id="sixWay5"
             data-index="5"
             data-value="自転車"
-            onclick="sixWayClick(this)"
+            onclick="CommuteWaysClick(this)"
           >
             自転車
           </div>
@@ -659,7 +491,7 @@
             id="sixWay6"
             data-index="6"
             data-value="徒歩圏内が良い"
-            onclick="sixWayClick(this)"
+            onclick="CommuteWaysClick(this)"
           >
             徒歩圏内が良い
           </div>
@@ -682,7 +514,7 @@
           <span
             class="next-button first-child"
             id="six-before"
-            onclick="gotoFive()"
+            onclick="CommuteWaysBackStep()"
             >< 戻る</span
           >
 
@@ -692,19 +524,18 @@
         </div>
       </div>
 
-      <div class="newstep" id="newstep">
+      <div class="step-post-number" id="post_number">
         <div class="second-head">
           <div class="step-text">
             <p>STEP<span>1</span></p>
             <p>STEP<span>2</span></p>
             <p>STEP<span>3</span></p>
             <p>STEP<span>4</span></p>
-            <p>STEP<span>5</span></p>
-            <p class="step-check">STEP<span class="span-check">6</span></p>
+            <p class="step-check">STEP<span class="span-check">5</span></p>
+            <p>STEP<span>6</span></p>
             <p>STEP<span>7</span></p>
-            <p>STEP<span>8</span></p>
           </div>
-          <div class="step-car-newstep">
+          <div class="step-car">
             <img src="./assets/img/step-taxi.webp" alt="" />
           </div>
           <div class="step-road">
@@ -716,7 +547,6 @@
             <span class="span-round5"> </span>
             <span class="span-round6"> </span>
             <span class="span-round7"> </span>
-            <span class="span-round8"> </span>
           </div>
         </div>
 
@@ -758,18 +588,19 @@
           <span
             class="next-button first-child"
             id="six-before"
-            onclick="gotoSix()"
+            onclick="PostNumberBackStep()"
             >< 戻る</span
           >
           <span
             class="next-button disabled"
             id="newstep-next"
-            onclick="newStepHidden()"
+            onclick="PostNumberNextStep()"
             >次へ</span
           >
         </div>
       </div>
-      <div class="seven" id="seven">
+
+      <div class="step-past-accidents" id="past_accidents">
         <div class="second-head">
           <div class="step-text">
             <p>STEP<span>1</span></p>
@@ -777,11 +608,10 @@
             <p>STEP<span>3</span></p>
             <p>STEP<span>4</span></p>
             <p>STEP<span>5</span></p>
-            <p>STEP<span>6</span></p>
-            <p class="step-check">STEP<span class="span-check">7</span></p>
-            <p>STEP<span>8</span></p>
+            <p class="step-check">STEP<span class="span-check">6</span></p>
+            <p>STEP<span>7</span></p>
           </div>
-          <div class="step-car-seven">
+          <div class="step-car">
             <img src="./assets/img/step-taxi.webp" alt="" />
           </div>
           <div class="step-road">
@@ -793,7 +623,6 @@
             <span class="span-round5"> </span>
             <span class="span-round6"> </span>
             <span class="span-round7"> </span>
-            <span class="span-round8"> </span>
           </div>
         </div>
         <div class="common-title">
@@ -801,7 +630,7 @@
           <p>運転中の事故について教えてください</p>
         </div>
         <div class="four-options-seven" id="four_options_seven">
-          <div class="next-img-seven">
+          <div id="nextImgSeven" class="next-img-seven">
             <img src="./assets/img/arrow-left.webp" alt="" />
           </div>
           <div
@@ -809,7 +638,7 @@
             id="accident1"
             data-index="1"
             data-value="これまで事故をしたことはない"
-            onclick="sevenAccident(this)"
+            onclick="PastAccidentsClick(this)"
           >
             これまで事故をしたことはない
           </div>
@@ -818,7 +647,7 @@
             id="accident2"
             data-index="2"
             data-value="駐⾞場でぶつけた/縁⽯で擦った程度の軽い事故"
-            onclick="sevenAccident(this)"
+            onclick="PastAccidentsClick(this)"
           >
             駐⾞場でぶつけた/縁⽯で擦った程度の軽い事故
           </div>
@@ -827,7 +656,7 @@
             id="accident3"
             data-index="3"
             data-value="居眠り運転をしたことがある"
-            onclick="sevenAccident(this)"
+            onclick="PastAccidentsClick(this)"
           >
             居眠り運転をしたことがある
           </div>
@@ -836,7 +665,7 @@
             id="accident4"
             data-index="4"
             data-value="⼈⾝事故を起こしたことがある"
-            onclick="sevenAccident(this)"
+            onclick="PastAccidentsClick(this)"
           >
             ⼈⾝事故を起こしたことがある
           </div>
@@ -868,7 +697,8 @@
           >
         </div>
       </div>
-      <div class="last" id="last">
+
+      <div class="step-last" id="last">
         <div class="second-head">
           <div class="step-text">
             <p>STEP<span>1</span></p>
@@ -877,10 +707,9 @@
             <p>STEP<span>4</span></p>
             <p>STEP<span>5</span></p>
             <p>STEP<span>6</span></p>
-            <p>STEP<span>7</span></p>
-            <p class="step-check">STEP<span class="span-check">8</span></p>
+            <p class="step-check">STEP<span class="span-check">7</span></p>
           </div>
-          <div class="step-car-last">
+          <div class="step-car">
             <img src="./assets/img/step-taxi.webp" alt="" />
           </div>
           <div class="step-road">
@@ -892,7 +721,6 @@
             <span class="span-round5"> </span>
             <span class="span-round6"> </span>
             <span class="span-round7"> </span>
-            <span class="span-round8"> </span>
           </div>
         </div>
         <div class="last-des">
@@ -997,26 +825,15 @@
             正しいメールアドレスを入力してください。
           </div>
         </div>
-        <!-- <div class="last-des">
-				<div class="common-img">
-					<img src="./assets/img/man.png" alt="">
-				</div>
-				<div class="common-des">
-					<div class="description-triangle"></div>
-					<div class="description-text sixth-des">
-						メールアドレスの記載がある⽅には厳選した求⼈もお送りします。
-					</div>
-				</div>
-			</div> -->
         <div class="next">
           <span
             class="next-button first-child"
             id="last-before"
-            onclick="gotoSeven()"
+            onclick="LastBackStep()"
             >< 戻る</span
           >
 
-          <span class="next-button" id="last-next" onclick="completeStep()"
+          <span class="next-button" id="last-next" onclick="LastNextStep()"
             >送信する</span
           >
           <div class="next-seven-img" id="">

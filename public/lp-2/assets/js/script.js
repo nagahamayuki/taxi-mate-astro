@@ -15,136 +15,153 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// //////////////////////////////////////////////////////////////////
+let exp_type;
 // ============================Second =================================
-
 var license = "";
+// function disableOtherButtons(clickedId) {
+//   var buttons = ["redtaxi", "blacktaxi", "nolicense"];
+//   buttons.forEach(function (buttonId) {
+//     if (buttonId !== clickedId) {
+//       document.getElementById(buttonId).classList.add("disabled");
+//     }
+//   });
+// }
+// function enableAllButtons() {
+//   var buttons = ["redtaxi", "blacktaxi", "nolicense"];
+//   buttons.forEach(function (buttonId) {
+//     document.getElementById(buttonId).classList.remove("disabled");
+//   });
+// }
 
-function disableOtherButtons(clickedId) {
-  var buttons = ["redtaxi", "blacktaxi", "nolicense"];
-  buttons.forEach(function (buttonId) {
-    if (buttonId !== clickedId) {
-      document.getElementById(buttonId).classList.add("disabled");
-    }
-  });
-}
-
-function secondCheck1() {
-  var prev_page = document.getElementById("second");
-
-  var next_page = document.getElementById("third");
-
-  // Hide the first button
-  prev_page.style.display = "none";
-
-  // Display the second div
-  next_page.style.display = "block";
-
-  var img_container_dom = document.querySelector(".next-img-second");
+function licenseClick1() {
+  var img_container_dom = document.getElementById("ani_second");
   var red_taxi_dom = document.getElementById("redtaxi");
+  var prev_page = document.getElementById("license");
+  var next_page = document.getElementById("changing_jobs_time");
+  prev_page.style.display = "none";
+  next_page.style.display = "block";
   license = "普通免許";
 
-  // Hide the first button
+  // if (license === "普通免許") {
+  //   license = "";
+  //   console.log("普通免許が選択されている場合の処理");
+  // } else {
+  //   license = "普通免許";
+  // }
   prev_page.style.display = "none";
-  // Display the second div
   next_page.style.display = "block";
-
-  console.log("license", license);
-
-  // updateNextButtonState();
+  console.log(license);
 }
-function secondCheck2() {
-  var img_container_dom = document.querySelector(".next-img-second");
+function licenseClick2() {
+  var img_container_dom = document.getElementById("ani_second");
   var black_taxi_dom = document.getElementById("blacktaxi");
-  var prev_page = document.getElementById("second");
-
-  var next_page = document.getElementById("third");
-
-  // Hide the first button
+  var prev_page = document.getElementById("license");
+  var next_page = document.getElementById("changing_jobs_time");
   prev_page.style.display = "none";
-
-  // Display the second div
   next_page.style.display = "block";
   const LICENSE_TYPE_BLACK = "二種免許".normalize("NFKC");
   license = LICENSE_TYPE_BLACK;
 
-  // Hide the first button
+  // if (license === LICENSE_TYPE_BLACK) {
+  //   license = "";
+  //   enableAllButtons();
+  //   img_container_dom.style.top = "2.5rem";
+  //   black_taxi_dom.style.backgroundColor = "";
+  // } else {
+  //   license = LICENSE_TYPE_BLACK;
+  // }
   prev_page.style.display = "none";
-
-  // Display the second div
   next_page.style.display = "block";
-
-  console.log("license", license);
-
-  // updateNextButtonState();
+  console.log(license);
 }
 
-function secondCheck3() {
-  var prev_page = document.getElementById("second");
-
-  var next_page = document.getElementById("third");
-
-  // Hide the first button
+function licenseClick3() {
+  var prev_page = document.getElementById("license");
+  var next_page = document.getElementById("changing_jobs_time");
   prev_page.style.display = "none";
-
-  // Display the second div
   next_page.style.display = "block";
   var no_license_dom = document.getElementById("nolicense");
   license = "免許は持っていない";
 
-  // Hide the first button
+  // if (license === "免許は持っていない") {
+  //   license = "";
+  //   enableAllButtons();
+  //   no_license_dom.style.backgroundColor = "";
+  // } else {
+  //   license = "免許は持っていない";
+  //   disableOtherButtons("nolicense");
+  // }
+
   prev_page.style.display = "none";
+  next_page.style.display = "block";
+  console.log(license);
+}
+function LicenseBackStep() {
+  var prev_page = document.getElementById("choice_job_reasons");
+
+  var next_page = document.getElementById("license");
+  // enableAllButtons();
+  // Hide the first button
+  prev_page.style.display = "block";
 
   // Display the second div
-  next_page.style.display = "block";
-
-  // updateNextButtonState();
-  console.log("license", license);
+  next_page.style.display = "none";
 }
 // Initial check to ensure the second-next button is disabled on page load
 function gotoFirst() {
   var prev_page = document.getElementById("first");
 
-  var secondpage = document.getElementById("second");
+  var secondpage = document.getElementById("license");
 
   // Hide the first button
   prev_page.style.display = "block";
 
   // Display the second Page
   secondpage.style.display = "none";
+
+  enableAllButtons();
 }
 
 ///////////////////////////////////////////////////////////////
 // ==========================Third=============================
 function secondHidden() {
-  var prev_page = document.getElementById("second");
+  var prev_page = document.getElementById("license");
 
-  var next_page = document.getElementById("third");
+  var next_page = document.getElementById("changing_jobs_time");
 
   // Hide the first button
   prev_page.style.display = "none";
 
   // Display the second div
   next_page.style.display = "block";
+}
+function updateThirdNextButtonState() {
+  if (license === "") {
+    document.getElementById("third-next").classList.add("disabled");
+  } else {
+    document.getElementById("third-next").classList.remove("disabled");
+  }
 }
 
 var changing_jobs_time = "";
 
-function thirdCheck(element) {
+function ChangingJobsTimeClick(element) {
   changing_jobs_time = element.getAttribute("data-value");
-  var prev_page = document.getElementById("third");
-  var next_page = document.getElementById("four");
+  var prev_page = document.getElementById("changing_jobs_time");
+  var next_page = document.getElementById("commute_ways");
   // Hide the first button
   prev_page.style.display = "none";
   // Display the second div
   next_page.style.display = "block";
+  console.log(changing_jobs_time);
 }
 // ///////////////////////////Fourth/////////////////////////////////////
 // ////////////////////////////////////////////////////////////////
-function gotoSecond() {
-  var prev_page = document.getElementById("second");
+function ChangingJobsTimeBackStep() {
+  var prev_page = document.getElementById("license");
 
-  var next_page = document.getElementById("third");
+  var next_page = document.getElementById("changing_jobs_time");
+  // enableAllButtons();
   // Hide the first button
   prev_page.style.display = "block";
 
@@ -152,45 +169,50 @@ function gotoSecond() {
   next_page.style.display = "none";
 }
 
-let changing_job_reasons = [];
+let choice_job_reasons = [];
 
-function updateFourNextButtonState() {
+function UpdateChoiceJobReasonsClickButtonState() {
   // Check if at least one element in the array is not null
 
-  if (changing_job_reasons.length !== 0) {
-    document.getElementById("four-next").classList.remove("disabled");
+  if (choice_job_reasons.length !== 0) {
+    document
+      .getElementById("choice_job_reasons_next_button")
+      .classList.remove("disabled");
   } else {
-    document.getElementById("four-next").classList.add("disabled");
-    document.querySelector(".next-img-four").style.top = "0px";
+    document
+      .getElementById("choice_job_reasons_next_button")
+      .classList.add("disabled");
+    document.getElementById("nextImgFourth").style.top = "0px";
   }
 }
 
-function fourClick(element) {
+function Choice_job_reasons_Click(element) {
   let clicked_reason = element.getAttribute("data-value");
-  if (changing_job_reasons.includes(clicked_reason)) {
-    changing_job_reasons = changing_job_reasons.filter(
+  if (choice_job_reasons.includes(clicked_reason)) {
+    choice_job_reasons = choice_job_reasons.filter(
       (reason) => reason !== clicked_reason
     );
     // element.style.backgroundColor = "";
     element.classList.add("bg-white");
     element.style.color = "currentcolor";
   } else {
-    changing_job_reasons.push(clicked_reason);
+    choice_job_reasons.push(clicked_reason);
     element.classList.remove("bg-white");
     element.style.backgroundColor = "#93d7dc";
     element.style.color = "#0d8ea3";
   }
-  const img_container_dom = document.querySelector(".next-img-four");
-  img_container_dom.style.top = "380px";
-  updateFourNextButtonState();
+  const img_container_dom = document.getElementById("nextImgFourth");
+  img_container_dom.style.top = "455px";
+  console.log(choice_job_reasons);
+  UpdateChoiceJobReasonsClickButtonState();
 }
 // /////////////////////////   Five    ///////////////////////////////////////
 // ////////////////////////////////////////////////////////////////
 
 function gotoThird() {
-  var prev_page = document.getElementById("third");
+  var prev_page = document.getElementById("changing_jobs_time");
 
-  var next_page = document.getElementById("four");
+  var next_page = document.getElementById("choice_job_reasons");
 
   // Hide the first button
   prev_page.style.display = "block";
@@ -199,43 +221,16 @@ function gotoThird() {
   next_page.style.display = "none";
 }
 
-function fourHidden() {
-  var prev_page = document.getElementById("four");
+function ChoiceJobReasonsNextStep() {
+  var prev_page = document.getElementById("choice_job_reasons");
 
-  var next_page = document.getElementById("five");
+  var next_page = document.getElementById("license");
 
   // Hide the first button
   prev_page.style.display = "none";
 
   // Display the second div
   next_page.style.display = "block";
-}
-
-let taxi_attracts = [];
-function updateFiveNextButtonState() {
-  if (taxi_attracts.length !== 0) {
-    document.getElementById("five-next").classList.remove("disabled");
-  } else {
-    document.getElementById("five-next").classList.add("disabled");
-    document.querySelector(".next-img-five").style.top = "0px";
-  }
-}
-
-function fiveClick(element) {
-  let taxi_attract = element.getAttribute("data-value");
-  if (taxi_attracts.includes(taxi_attract)) {
-    taxi_attracts = taxi_attracts.filter((reason) => reason !== taxi_attract);
-    element.classList.add("bg-white");
-    element.style.color = "currentcolor";
-  } else {
-    taxi_attracts.push(taxi_attract);
-    element.classList.remove("bg-white");
-    element.style.backgroundColor = "#93d7dc";
-    element.style.color = "#0d8ea3";
-  }
-  const img_container_dom = document.querySelector(".next-img-five");
-  img_container_dom.style.top = "250px";
-  updateFiveNextButtonState();
 }
 
 // ////////////// newstep /////////////////////////
@@ -243,9 +238,9 @@ function fiveClick(element) {
 // //////////////////////////  Six  ///////////////////////////////////
 // /////////////////////////////////////////////////////////////
 function gotoFour() {
-  var prev_page = document.getElementById("four");
+  var prev_page = document.getElementById("choice_job_reasons");
 
-  var next_page = document.getElementById("five");
+  var next_page = document.getElementById("taxi_attracts");
 
   // Hide the first button
   prev_page.style.display = "block";
@@ -255,9 +250,9 @@ function gotoFour() {
 }
 
 function fiveHidden() {
-  var prev_page = document.getElementById("five");
+  var prev_page = document.getElementById("taxi_attracts");
 
-  var next_page = document.getElementById("six");
+  var next_page = document.getElementById("commute_ways");
 
   // Hide the first button
   prev_page.style.display = "none";
@@ -265,8 +260,6 @@ function fiveHidden() {
   // Display the second div
   next_page.style.display = "block";
 }
-
-let residence = "";
 
 function disableOtherArea(clickedId) {
   var buttons = ["sixArea1", "sixArea2", "sixArea3", "sixArea4", "sixArea5"];
@@ -284,25 +277,6 @@ function enableAllArea() {
   });
 }
 
-function sixAreaClick(element) {
-  const img_container_dom = document.querySelector(".next-img-six");
-  if (residence !== "") {
-    residence = "";
-    element.classList.add("bg-white");
-    element.style.color = "currentcolor";
-    img_container_dom.style.top = "0px";
-    enableAllArea();
-    updateSixNextButtonState();
-  } else {
-    residence = element.getAttribute("data-value");
-    element.style.backgroundColor = "#93d7dc";
-    element.classList.remove("bg-white");
-    element.style.color = "#0d8ea3";
-    img_container_dom.style.top = "180px";
-    disableOtherArea(element.id);
-    updateSixNextButtonState();
-  }
-}
 function updateSixNextButtonState() {
   if (commute_ways.length !== 0) {
     document.getElementById("six-next").classList.remove("disabled");
@@ -312,9 +286,9 @@ function updateSixNextButtonState() {
 }
 let commute_ways = [];
 
-function sixWayClick(element) {
+function CommuteWaysClick(element) {
   let six_way = element.getAttribute("data-value");
-  const img_container_dom = document.querySelector(".next-img-six");
+  const img_container_dom = document.getElementById("nextImgSix");
   if (commute_ways.includes(six_way)) {
     commute_ways = commute_ways.filter((reason) => reason !== six_way);
     element.classList.add("bg-white");
@@ -332,9 +306,10 @@ function sixWayClick(element) {
     updateSixNextButtonState();
     img_container_dom.style.top = "260px";
   }
+  console.log(commute_ways);
 }
 document.addEventListener("DOMContentLoaded", (event) => {
-  const img_container_dom = document.querySelector(".next-img-six");
+  const img_container_dom = document.getElementById("nextImgSix");
   let inputStation = document.getElementById("nearest_station");
   inputStation.addEventListener("input", () => {
     if (inputStation.value.length > 1) {
@@ -354,7 +329,7 @@ async function checkPost(post_num) {
     .then((data) => {
       if (data.status === 200) {
         document.getElementById("newstep-next").classList.remove("disabled");
-        newStepHidden();
+        PostNumberNextStep();
         postError.style.display = "none";
         postError.classList.remove("shake");
       } else {
@@ -390,9 +365,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-function gotoFive() {
-  var prev_page = document.getElementById("five");
-  var next_page = document.getElementById("six");
+function CommuteWaysBackStep() {
+  var prev_page = document.getElementById("changing_jobs_time");
+  var next_page = document.getElementById("commute_ways");
   post_number = "";
   nearest_station = "";
   // Hide the first button
@@ -401,27 +376,27 @@ function gotoFive() {
   next_page.style.display = "none";
 }
 function sixHidden() {
-  var prev_page = document.getElementById("six");
+  var prev_page = document.getElementById("commute_ways");
   nearest_station = document.getElementById("nearest_station").value;
 
-  var next_page = document.getElementById("newstep");
+  var next_page = document.getElementById("post_number");
 
   // Hide the first button
   prev_page.style.display = "none";
   // Display the second div
   next_page.style.display = "block";
 }
-function gotoSix() {
-  var prev_page = document.getElementById("six");
-  var next_page = document.getElementById("newstep");
+function PostNumberBackStep() {
+  var prev_page = document.getElementById("commute_ways");
+  var next_page = document.getElementById("post_number");
   // Hide the first button
   prev_page.style.display = "block";
   // Display the second div
   next_page.style.display = "none";
 }
-function newStepHidden() {
-  var prev_page = document.getElementById("newstep");
-  var next_page = document.getElementById("seven");
+function PostNumberNextStep() {
+  var prev_page = document.getElementById("post_number");
+  var next_page = document.getElementById("past_accidents");
 
   // Hide the first button
   prev_page.style.display = "none";
@@ -432,20 +407,21 @@ function newStepHidden() {
 // ////////////////////////        Seven         ///////////////////////////////////
 // ///////////////////////////////////////////////////////////
 let past_accidents = [];
-function updateSevenNextButtonState() {
+function PastAccidentNextFunction() {
   // Check if at least one element in the array is not null
-  const img_container_dom = document.querySelector(".next-img-seven");
+  const img_container_dom = document.getElementById("nextImgSeven");
 
   if (past_accidents.length !== 0) {
     document.getElementById("seven-next").classList.remove("disabled");
     img_container_dom.style.top = "340px";
   } else {
     document.getElementById("seven-next").classList.add("disabled");
-    const img_container_dom = document.querySelector(".next-img-seven");
+    const img_container_dom = document.getElementById("nextImgSeven");
     img_container_dom.style.top = "0px";
   }
+  console.log(past_accidents);
 }
-function sevenAccident(element) {
+function PastAccidentsClick(element) {
   let clicked_accident = element.getAttribute("data-value");
   if (past_accidents.includes(clicked_accident)) {
     past_accidents = past_accidents.filter(
@@ -459,13 +435,13 @@ function sevenAccident(element) {
     element.style.backgroundColor = "#93d7dc";
     element.style.color = "#0d8ea3";
   }
-  updateSevenNextButtonState();
+  PastAccidentNextFunction();
 }
 
 function gotoNewStep() {
-  var prev_page = document.getElementById("newstep");
+  var prev_page = document.getElementById("post_number");
 
-  var next_page = document.getElementById("seven");
+  var next_page = document.getElementById("past_accidents");
 
   document.getElementById("custom-sixinput-one").value = "";
   // Hide the first button
@@ -477,7 +453,7 @@ function gotoNewStep() {
 }
 
 function sevenHidden() {
-  var prev_page = document.getElementById("seven");
+  var prev_page = document.getElementById("past_accidents");
 
   var next_page = document.getElementById("last");
   // Hide the first button
@@ -489,8 +465,8 @@ function sevenHidden() {
 
 // ///////////////// Last ////////////////////////
 
-function gotoSeven() {
-  var prev_page = document.getElementById("seven");
+function LastBackStep() {
+  var prev_page = document.getElementById("past_accidents");
 
   var next_page = document.getElementById("last");
 
@@ -508,7 +484,7 @@ var phone_number = "";
 var email = "";
 
 var page_local_url = window.location.href;
-async function completeStep() {
+async function LastNextStep() {
   var name_vali = document.getElementById("nameInputError");
   var phone_vali = document.getElementById("phoneInputError");
   var age_vali = document.getElementById("ageInputError");
@@ -592,14 +568,12 @@ async function completeStep() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
+              choice_job_reasons: choice_job_reasons,
               license: license,
               changing_jobs_time: changing_jobs_time,
-              changing_job_reasons: changing_job_reasons,
-              taxi_attracts: taxi_attracts,
-              residence: residence,
               commute_ways: commute_ways,
-              post_number: post_number,
               nearest_station: nearest_station,
+              post_number: post_number,
               past_accidents: past_accidents,
               surname: surname,
               lastname: lastname,
@@ -607,15 +581,14 @@ async function completeStep() {
               phone_number: phone_number,
               email: email,
               page_local_url: page_local_url,
-              changing_job_reasons_hubspot: changing_job_reasons.join(";"),
-              taxi_attracts_hubspot: taxi_attracts.join(";"),
+              choice_job_reasons_hubspot: choice_job_reasons.join(";"),
               commute_ways_hubspot: commute_ways.join(";"),
               past_accidents_hubspot: past_accidents.join(";"),
             }),
           };
           let url =
             "https://hook.us1.make.com/dcv555toufdmuopgvlc5zhxtguw5egp7";
-          // let url = "https://hook.us1.make.com/sb3s7hkgx380o517s7ny94yw67zhn252"; //ローカルで利用するもの
+          // let url = "https://hook.us1.make.com/qi9wfgajkxhyvvgd3qsy4cfucf947qyj"; //ローカルで利用するもの
           const data = await fetch(url, sendData);
 
           document.getElementById("last-next").classList.add("span-disabled");

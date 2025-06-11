@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.taxi-mate.jp"
+        }
+      ],
+      "destination": "https://taxi-mate.jp/:path*",
+      "permanent": true
+    },
+    {
       "source": "/:path*/index.html",
       "destination": "/:path*/",
       "permanent": true

@@ -14,6 +14,7 @@
 * 全ページ共通でGoogle Tag Manager対応
 * 動的ルーティング（`/job/[slug]`）で求人詳細を生成
 * URL末尾のスラッシュ統一（`trailingSlash: 'always'`）によるSEO一貫性の確保
+* ビルド時に自動的にサイトマップ（`sitemap.xml`）を生成
 
 ## ディレクトリ構成
 
@@ -53,9 +54,25 @@ taxi-mate-astro/
    `.env` ファイルを作成し、以下の内容を記述：
 
    ```env
+   # Notion API Configuration
    NOTION_API_KEY=your_notion_integration_secret
    NOTION_DATABASE_ID=your_database_id
+   
+   # Webhook URLs
+   MAKE_CONTACT_WEBHOOK_URL=your_contact_webhook_url
+   MAKE_JOB_ENTRY_WEBHOOK_URL=your_job_entry_webhook_url
    ```
+
+   **環境変数の詳細：**
+   - `NOTION_API_KEY`: Notion API統合キー（Notion Integrationから取得）
+   - `NOTION_DATABASE_ID`: 求人情報を管理するNotionデータベースのID
+   - `MAKE_CONTACT_WEBHOOK_URL`: お問い合わせフォーム（`/contact`）用のWebhook URL
+   - `MAKE_JOB_ENTRY_WEBHOOK_URL`: 求人応募フォーム（`/jobs/[slug]`）用のWebhook URL
+
+   **注意事項：**
+   - `PUBLIC_`プレフィックスが付いた環境変数はクライアントサイドのコードに公開されます
+   - `.env`ファイルは絶対にバージョン管理にコミットしないでください
+   - `.gitignore`に`.env`が含まれていることを確認してください
 
 上記1,2ができている場合は3から開発可能。
 3. **ローカルサーバ起動**
@@ -93,6 +110,13 @@ taxi-mate-astro/
 
 - デプロイ先: [Vercel](https://vercel.com/)
 - 設定はVercelのWebダッシュボードで管理しています
+
+### ビルド時の自動生成ファイル
+
+- **サイトマップ**: `npm run build` 実行時に、`@astrojs/sitemap` により自動的に `sitemap.xml` が生成されます
+  - 設定は `astro.config.mjs` で管理
+  - 404ページは除外設定済み
+  - 更新頻度: weekly、優先度: 0.7で設定
 
 ## よくある質問
 

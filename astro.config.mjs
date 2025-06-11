@@ -31,6 +31,6 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    envPrefix: ['WEBHOOK_'],
+    envPrefix: ['MAKE_'],
   },
 });

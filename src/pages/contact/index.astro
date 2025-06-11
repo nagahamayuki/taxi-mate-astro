@@ -25,9 +25,9 @@ export async function POST({ request }: { request: Request }) {
     };
 
     // Send to webhook
-    const webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL;
+    const webhookUrl = import.meta.env.MAKE_CONTACT_WEBHOOK_URL;
     if (!webhookUrl) {
-      throw new Error('PUBLIC_WEBHOOK_URL is not defined');
+      throw new Error('MAKE_CONTACT_WEBHOOK_URL is not defined');
     }
 
     const response = await fetch(webhookUrl, {
@@ -333,7 +333,7 @@ export async function POST({ request }: { request: Request }) {
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('contactForm') as HTMLFormElement;
     if (!form) {
       console.error('Form element not found');
       return;
@@ -359,11 +359,11 @@ export async function POST({ request }: { request: Request }) {
       console.log('Sending form data:', data);
 
       try {
-        const webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL;
+        const webhookUrl = import.meta.env.MAKE_CONTACT_WEBHOOK_URL;
         console.log('Webhook URL:', webhookUrl);
 
         if (!webhookUrl) {
-          throw new Error('PUBLIC_WEBHOOK_URL is not defined');
+          throw new Error('MAKE_CONTACT_WEBHOOK_URL is not defined');
         }
 
         console.log('Sending request to webhook...');

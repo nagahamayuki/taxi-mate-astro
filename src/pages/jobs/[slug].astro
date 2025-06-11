@@ -384,7 +384,7 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
   define:vars={{
     jobId: job.id,
     jobCompany: job.company,
-    webhookUrl: import.meta.env.PUBLIC_JOB_WEBHOOK_URL,
+    webhookUrl: import.meta.env.MAKE_JOB_ENTRY_WEBHOOK_URL,
   }}
 >
   document.addEventListener('DOMContentLoaded', () => {
@@ -419,7 +419,7 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
         console.log('Webhook URL:', webhookUrl);
 
         if (!webhookUrl) {
-          throw new Error('PUBLIC_JOB_WEBHOOK_URL is not defined');
+          throw new Error('MAKE_JOB_ENTRY_WEBHOOK_URL is not defined');
         }
 
         console.log('Sending request to webhook...');

@@ -14,10 +14,10 @@ export default defineConfig({
       customPages: [],
       // 特定のページを除外したい場合
       filter: (page) => page !== 'https://taxi-mate.jp/404/',
-      // 更新頻度の設定
-      changefreq: 'weekly',
-      // 優先度の設定
-      priority: 0.7,
+      // 更新頻度の設定（デフォルトは月次）
+      changefreq: 'monthly',
+      // 優先度の設定（デフォルトは0.5）
+      priority: 0.5,
       // 最終更新日の設定
       lastmod: new Date(),
       // エントリー数の制限（これを大きくすることで単一ファイルになる）

@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# 求人ページは週次でクロール
+User-agent: Googlebot
+Crawl-delay: 1
+Allow: /jobs/
+
+# その他のページは月次でクロール
+User-agent: *
+Crawl-delay: 7
+Allow: /
+
+# サイトマップの場所
+Sitemap: https://taxi-mate.jp/sitemap.xml 

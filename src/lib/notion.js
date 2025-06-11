@@ -6,6 +6,12 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY });
 export async function getJobsFromNotion() {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID,
+    filter: {
+      property: '募集状況',
+      select: {
+        equals: '募集中',
+      },
+    },
   });
 
   return response.results.map((page) => {
@@ -32,6 +38,12 @@ export async function getJobsFromNotion() {
 export async function getLatestJobsFromNotion() {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID,
+    filter: {
+      property: '募集状況',
+      select: {
+        equals: '募集中',
+      },
+    },
     sorts: [
       {
         timestamp: 'created_time',

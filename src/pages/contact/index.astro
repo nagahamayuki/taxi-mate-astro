@@ -155,7 +155,7 @@ export async function POST({ request }: { request: Request }) {
         東京都内のタクシー会社を知り尽くした担当者が、条件にマッチしたまずは1社を紹介します。
       </p>
       <div class="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
-        <form id="contactForm" class="lg:flex-auto">
+        <form id="contactForm" class="order-2 lg:order-1 lg:flex-auto">
           <div class="grid grid-cols-1 gap-x-8 gap-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
               <div>
@@ -302,7 +302,7 @@ export async function POST({ request }: { request: Request }) {
             <span class="text-red-500">*</span> は必須項目です
           </p>
         </form>
-        <div class="lg:mt-6 lg:w-80 lg:flex-none">
+        <div class="order-1 lg:order-2 lg:mt-6 lg:w-80 lg:flex-none">
           <figure class="mt-10">
             <blockquote class="text-sm font-semibold text-gray-900">
               <p>

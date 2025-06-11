@@ -241,6 +241,7 @@ export async function POST({ request }: { request: Request }) {
                   required
                   pattern="[0-9]{7}"
                   placeholder="1100015"
+                  inputmode="numeric"
                   class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                 />
               </div>
@@ -334,6 +335,68 @@ export async function POST({ request }: { request: Request }) {
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm') as HTMLFormElement;
+    const phoneInput = document.getElementById('phone') as HTMLInputElement;
+
+    // 電話番号の長さバリデーション関数
+    function validatePhoneNumberLength(value: string): boolean {
+      // 数字以外を除去
+      const numbers = value.replace(/\D/g, '');
+
+      // 携帯電話（090, 080, 070, 060, 050）
+      if (/^0[5-9]0/.test(numbers)) {
+        return numbers.length === 11;
+      }
+
+      // IP電話（050）
+      if (numbers.startsWith('050')) {
+        return numbers.length === 11;
+      }
+
+      // フリーダイヤル（0120）
+      if (numbers.startsWith('0120')) {
+        return numbers.length >= 10 && numbers.length <= 11;
+      }
+
+      // ナビダイヤル（0570）
+      if (numbers.startsWith('0570')) {
+        return numbers.length >= 10 && numbers.length <= 11;
+      }
+
+      // 固定電話（市外局番）
+      if (numbers.startsWith('0')) {
+        return numbers.length >= 10 && numbers.length <= 11;
+      }
+
+      return false;
+    }
+
+    // 電話番号入力時のイベントハンドラ
+    phoneInput.addEventListener('input', (e) => {
+      const target = e.target as HTMLInputElement;
+      const numbers = target.value.replace(/\D/g, '');
+
+      // 入力値が長すぎる場合は切り詰める
+      if (numbers.length > 11) {
+        target.value = numbers.slice(0, 11);
+      }
+
+      // バリデーションメッセージの表示
+      const isValid = validatePhoneNumberLength(target.value);
+      const errorMessage =
+        target.parentElement?.querySelector('.error-message');
+
+      if (!isValid && numbers.length > 0) {
+        if (!errorMessage) {
+          const message = document.createElement('p');
+          message.className = 'error-message text-red-500 text-sm mt-1';
+          message.textContent = '有効な電話番号を入力してください';
+          target.parentElement?.appendChild(message);
+        }
+      } else if (errorMessage) {
+        errorMessage.remove();
+      }
+    });
+
     if (!form) {
       console.error('Form element not found');
       return;
@@ -344,6 +407,13 @@ export async function POST({ request }: { request: Request }) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       console.log('Form submitted');
+
+      // 電話番号のバリデーション
+      const phoneValue = phoneInput.value;
+      if (!validatePhoneNumberLength(phoneValue)) {
+        alert('有効な電話番号を入力してください。');
+        return;
+      }
 
       const formData = new FormData(form);
       const data = {

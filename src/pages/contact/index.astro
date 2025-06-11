@@ -25,9 +25,9 @@ export async function POST({ request }: { request: Request }) {
     };
 
     // Send to webhook
-    const webhookUrl = import.meta.env.WEBHOOK_URL;
+    const webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL;
     if (!webhookUrl) {
-      throw new Error('WEBHOOK_URL is not defined');
+      throw new Error('PUBLIC_WEBHOOK_URL is not defined');
     }
 
     const response = await fetch(webhookUrl, {
@@ -359,11 +359,11 @@ export async function POST({ request }: { request: Request }) {
       console.log('Sending form data:', data);
 
       try {
-        const webhookUrl = import.meta.env.WEBHOOK_URL;
+        const webhookUrl = import.meta.env.PUBLIC_WEBHOOK_URL;
         console.log('Webhook URL:', webhookUrl);
 
         if (!webhookUrl) {
-          throw new Error('WEBHOOK_URL is not defined');
+          throw new Error('PUBLIC_WEBHOOK_URL is not defined');
         }
 
         console.log('Sending request to webhook...');

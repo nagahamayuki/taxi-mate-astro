@@ -14,6 +14,36 @@
       "source": "/:path((?!index$|index\\.html$|.*\\/|$).+)",
       "destination": "/:path/",
       "permanent": true
+    },
+    {
+      "source": "/job",
+      "destination": "/jobs/",
+      "permanent": true
+    },
+    {
+      "source": "/job/",
+      "destination": "/jobs/",
+      "permanent": true
+    },
+    {
+      "source": "/job/index.html",
+      "destination": "/jobs/",
+      "permanent": true
+    },
+    {
+      "source": "/registration",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/registration/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/registration/index.html",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -102,9 +102,6 @@ const jobsCount = jobs.length;
 
                   {job.dispatchApps && job.dispatchApps.length > 0 && (
                     <div class="flex flex-col gap-y-1">
-                      <span class="text-gray-300 whitespace-nowrap text-sm">
-                        配車アプリ：
-                      </span>
                       <div class="flex flex-wrap items-center gap-1">
                         {job.dispatchApps.map((app: string) => (
                           <span class="inline-block text-xs rounded-full bg-gray-50 px-2 py-1 font-medium text-gray-600 whitespace-nowrap">
@@ -115,7 +112,20 @@ const jobsCount = jobs.length;
                     </div>
                   )}
 
-                  <p class="text-sm text-gray-300 truncate">{job.location}</p>
+                  <p class="text-sm text-gray-300 whitespace-pre-line line-clamp-3">
+                    {job.location}
+                  </p>
+                  <p class="text-xs text-gray-400 mt-1">
+                    作成日:{' '}
+                    {new Date(job.created_time).toLocaleString('ja-JP', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                      hour: '2-digit',
+                      minute: '2-digit',
+                      hour12: false,
+                    })}
+                  </p>
                 </div>
               </a>
             );

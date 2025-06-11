@@ -32,6 +32,9 @@ export async function getJobsFromNotion() {
         ) || [],
       headOffice: page.properties['本社']?.rich_text?.[0]?.plain_text || '',
       notionUrl: page.public_url || page.url,
+      // タイムスタンプ情報を追加
+      created_time: page.created_time,
+      last_edited_time: page.last_edited_time,
     };
   });
 }
@@ -72,6 +75,9 @@ export async function getLatestJobsFromNotion() {
         ) || [],
       headOffice: page.properties['本社']?.rich_text?.[0]?.plain_text || '',
       notionUrl: page.public_url || page.url,
+      // タイムスタンプ情報を追加
+      created_time: page.created_time,
+      last_edited_time: page.last_edited_time,
     };
   });
 }

@@ -55,6 +55,16 @@
       "source": "/registration/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/sitemap-index.xml/",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap-0.xml/",
+      "destination": "/sitemap-0.xml",
+      "permanent": true
     }
   ],
   "rewrites": [

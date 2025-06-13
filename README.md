@@ -131,7 +131,13 @@ npm run dev
 
 ### ビルド時の自動生成ファイル
 
-- **サイトマップ**: `npm run build` 実行時に、`@astrojs/sitemap` により自動的に `sitemap.xml` が生成されます
+- **サイトマップ**: `npm run build` 実行時に、以下の流れでサイトマップが生成・配置されます：
+  1. `@astrojs/sitemap` により `dist/client` ディレクトリに以下のファイルが生成されます：
+     - `sitemap-index.xml`: サイトマップのインデックスファイル
+     - `sitemap-0.xml`: 実際のURLリストを含むサイトマップファイル
+       （注：サイトの規模に応じて、`sitemap-1.xml`、`sitemap-2.xml` などが追加される場合があります）
+  2. `package.json` の `postbuild` スクリプトにより、生成されたサイトマップファイルが `public` ディレクトリにコピーされます
+  3. Vercelデプロイ時に、`public` ディレクトリの内容が自動的にデプロイされます
   - 設定は `astro.config.mjs` で管理
   - 404ページは除外設定済み
   - 更新頻度: weekly、優先度: 0.7で設定

@@ -57,5 +57,10 @@
       "permanent": true
     }
   ],
-  "rewrites": []
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml"
+    }
+  ]
 }

@@ -21,7 +21,21 @@ export default defineConfig({
       // 最終更新日の設定
       lastmod: new Date(),
       // エントリー数の制限（これを大きくすることで単一ファイルになる）
-      entryLimit: 10000,
+      entryLimit: 50000,
+      // サイトマップのファイル名を指定
+      i18n: {
+        defaultLocale: 'ja',
+        locales: {
+          ja: 'ja',
+        },
+      },
+      // サイトマップのファイル名を指定
+      serialize: (item) => {
+        return {
+          ...item,
+          url: item.url.replace(/\/$/, ''),
+        };
+      },
     }),
   ],
   adapter: vercel({

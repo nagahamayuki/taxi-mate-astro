@@ -132,15 +132,32 @@ npm run dev
 ### ビルド時の自動生成ファイル
 
 - **サイトマップ**: `npm run build` 実行時に、以下の流れでサイトマップが生成・配置されます：
-  1. `@astrojs/sitemap` により `dist/client` ディレクトリに以下のファイルが生成されます：
-     - `sitemap-index.xml`: サイトマップのインデックスファイル
-     - `sitemap-0.xml`: 実際のURLリストを含むサイトマップファイル
-       （注：サイトの規模に応じて、`sitemap-1.xml`、`sitemap-2.xml` などが追加される場合があります）
+  1. `@astrojs/sitemap` により `dist/client` ディレクトリに `sitemap.xml` が生成されます
   2. `package.json` の `postbuild` スクリプトにより、生成されたサイトマップファイルが `public` ディレクトリにコピーされます
   3. Vercelデプロイ時に、`public` ディレクトリの内容が自動的にデプロイされます
   - 設定は `astro.config.mjs` で管理
   - 404ページは除外設定済み
-  - 更新頻度: weekly、優先度: 0.7で設定
+  - 更新頻度: monthly、優先度: 0.5で設定
+  - エントリー数制限: 50,000（単一ファイルとして生成）
+
+### URL構造とファイルハンドリング
+
+本プロジェクトでは、以下のURL構造の取り扱いを実装しています：
+
+1. **ページURL**: すべてのページURLは末尾にスラッシュ（`/`）を付けるように統一
+
+   - 例：`/about/`, `/jobs/`, `/contact/`
+   - これは`astro.config.mjs`の`trailingSlash: 'always'`と`vercel.json`の`"trailingSlash": true`で制御
+
+2. **ファイルURL**: 特定のファイル（特にサイトマップ）は末尾スラッシュなしで提供
+   - 例：`/sitemap.xml`
+   - これは`vercel.json`の`rewrites`と`redirects`で制御
+   - 正規表現パターン`/:path((?!index$|index\\.html$|.*\\/|$|.*\\.xml$).+)`で、XMLファイルを末尾スラッシュリダイレクトから除外
+
+この設計により：
+
+- SEOの一貫性を保ちながら（ページURLの末尾スラッシュ統一）
+- ファイルアクセスの問題を回避（サイトマップなどのファイルは末尾スラッシュなしで提供）
 
 ## よくある質問
 

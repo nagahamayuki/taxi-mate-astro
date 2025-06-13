@@ -4,7 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
+    "postbuild": "cp dist/client/sitemap*.xml public/",
     "preview": "astro preview",
     "astro": "astro"
   },

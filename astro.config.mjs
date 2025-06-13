@@ -10,7 +10,6 @@ export default defineConfig({
   site: 'https://taxi-mate.jp',
   integrations: [
     sitemap({
-      filename: 'sitemap.xml',
       // カスタムページを追加したい場合
       customPages: [],
       // 特定のページを除外したい場合

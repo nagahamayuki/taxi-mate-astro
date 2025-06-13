@@ -7,14 +7,14 @@
 
 ## 特徴
 
-* Astroベースの静的サイトジェネレーター
-* Notion APIを利用したCMS的運用（求人データ管理）
-* ページごとのSEO設定（`title` / `description` / `canonical`）
-* 独立したLPページ（`/lp-1`）を完全HTML/CSS/JSで配置
-* 全ページ共通でGoogle Tag Manager対応
-* 動的ルーティング（`/job/[slug]`）で求人詳細を生成
-* URL末尾のスラッシュ統一（`trailingSlash: 'always'`）によるSEO一貫性の確保
-* ビルド時に自動的にサイトマップ（`sitemap.xml`）を生成
+- Astroベースの静的サイトジェネレーター
+- Notion APIを利用したCMS的運用（求人データ管理）
+- ページごとのSEO設定（`title` / `description` / `canonical`）
+- 独立したLPページ（`/lp-1`）を完全HTML/CSS/JSで配置
+- 全ページ共通でGoogle Tag Manager対応
+- 動的ルーティング（`/job/[slug]`）で求人詳細を生成
+- URL末尾のスラッシュ統一（`trailingSlash: 'always'`）によるSEO一貫性の確保
+- ビルド時に自動的にサイトマップ（`sitemap.xml`）を生成
 
 ## ディレクトリ構成
 
@@ -35,12 +35,12 @@ taxi-mate-astro/
 
 ## 使用技術
 
-* **Astro**
-* **Tailwind CSS**（ユーティリティクラス利用）
+- **Astro**
+- **Tailwind CSS**（ユーティリティクラス利用）
   - バージョン: ^4.1.3
   - `@tailwindcss/vite` プラグイン対応済み
-* **Notion API**（データソースとして利用）
-* **Node.js (ESM)**
+- **Notion API**（データソースとして利用）
+- **Node.js (ESM)**
 
 ## セットアップ手順(新しいPC)
 
@@ -57,29 +57,30 @@ taxi-mate-astro/
    # Notion API Configuration
    NOTION_API_KEY=your_notion_integration_secret
    NOTION_DATABASE_ID=your_database_id
-   
+
    # Webhook URLs
    MAKE_CONTACT_WEBHOOK_URL=your_contact_webhook_url
    MAKE_JOB_ENTRY_WEBHOOK_URL=your_job_entry_webhook_url
    ```
 
    **環境変数の詳細：**
+
    - `NOTION_API_KEY`: Notion API統合キー（Notion Integrationから取得）
    - `NOTION_DATABASE_ID`: 求人情報を管理するNotionデータベースのID
    - `MAKE_CONTACT_WEBHOOK_URL`: お問い合わせフォーム（`/contact`）用のWebhook URL
    - `MAKE_JOB_ENTRY_WEBHOOK_URL`: 求人応募フォーム（`/jobs/[slug]`）用のWebhook URL
 
    **注意事項：**
+
    - `PUBLIC_`プレフィックスが付いた環境変数はクライアントサイドのコードに公開されます
    - `.env`ファイルは絶対にバージョン管理にコミットしないでください
    - `.gitignore`に`.env`が含まれていることを確認してください
 
-上記1,2ができている場合は3から開発可能。
-3. **ローカルサーバ起動**
+上記1,2ができている場合は3から開発可能。3. **ローカルサーバ起動**
 
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
 4. **Notion API テスト（任意）**
 
@@ -89,20 +90,20 @@ taxi-mate-astro/
 
 ## 開発環境の特徴
 
-| 項目             | 内容                                                                 |
-|------------------|----------------------------------------------------------------------|
-| 開発サーバー起動 | `npm run dev` で Astro 開発サーバを起動                              |
-| Node.js実行      | `node src/lib/test-notion.js` などを CLI で直接実行                  |
-| バージョン管理   | Node.js v22.5.1 を使用（Herd特有の記述なし）                         |
-| .envファイル     | 手動で `.env` をルートに配置して使用                                 |
-| パッケージ管理   | `npm install` を使用（herd install は使われていない）                |
+| 項目             | 内容                                                  |
+| ---------------- | ----------------------------------------------------- |
+| 開発サーバー起動 | `npm run dev` で Astro 開発サーバを起動               |
+| Node.js実行      | `node src/lib/test-notion.js` などを CLI で直接実行   |
+| バージョン管理   | Node.js v22.5.1 を使用（Herd特有の記述なし）          |
+| .envファイル     | 手動で `.env` をルートに配置して使用                  |
+| パッケージ管理   | `npm install` を使用（herd install は使われていない） |
 
 ## 開発者向けメモ
 
-* ページ単位で `title` / `description` / `url` を `BaseLayout` に渡すことでSEO情報を制御。
-* `Fragment` + `slot="head"` により、ページ固有の `<meta>` を追加可能。
-* `/jobs/` の一覧は Notion DB の内容を元に静的生成される。
-* `[slug].astro` の `getStaticPaths()` により、動的なルーティングが設定される。
+- ページ単位で `title` / `description` / `url` を `BaseLayout` に渡すことでSEO情報を制御。
+- `Fragment` + `slot="head"` により、ページ固有の `<meta>` を追加可能。
+- `/jobs/` の一覧は Notion DB の内容を元に静的生成される。
+- `[slug].astro` の `getStaticPaths()` により、動的なルーティングが設定される。
 
 ## デプロイ
 
@@ -116,12 +117,14 @@ taxi-mate-astro/
 本プロジェクトでは`@astrojs/vercel`アダプターを使用しています。このアダプターは、AstroプロジェクトをVercelで快適に動作させるための橋渡し役を果たします。
 
 主な特徴：
+
 - **デプロイの最適化**: Vercelの環境に合わせて自動的に最適な設定を行います
 - **柔軟なレンダリング**: ページごとに静的生成（SSG）とサーバーサイドレンダリング（SSR）を選択できます
 - **Edge Functions**: 必要に応じて、VercelのEdge Functionsを利用できます
 - **自動設定**: Vercel特有の設定を自動的に行い、手動設定の手間を省きます
 
 設定について：
+
 - アダプターの基本設定は`astro.config.mjs`で管理しています
 - `output: 'static'`の設定は削除しており、Vercelが各ページの特性に応じて最適な出力形式（静的/動的）を自動的に選択します
 - これにより、パフォーマンスと柔軟性の両方を確保しています
@@ -149,10 +152,14 @@ SEO観点で推奨されます。同一コンテンツに複数URLでアクセ�
 
 ## 今後の予定
 
-* 求人データに `slug` を含めてNotion管理（今はインデックスベース）
-* TailwindベースのUIデザイン適用
-* LP側のGTM計測整備とABテスト機能
+- 求人データに `slug` を含めてNotion管理（今はインデックスベース）
+- TailwindベースのUIデザイン適用
+- LP側のGTM計測整備とABテスト機能
 
 ---
 
 必要に応じて、ライセンス情報やデプロイ手順（Vercelなど）も追記可能です。必要であればそのセクションも追加します。
+
+## 最新リリース
+
+2025年6月13日 18:39

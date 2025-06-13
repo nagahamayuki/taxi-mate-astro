@@ -28,6 +28,9 @@ export default defineConfig({
     imageService: true,
   }),
   trailingSlash: 'always',
+  build: {
+    format: 'directory',
+  },
 
   vite: {
     plugins: [tailwindcss()],

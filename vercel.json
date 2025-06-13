@@ -63,17 +63,10 @@
       "destination": "/sitemap-index.xml"
     },
     {
-      "source": "/sitemap-index.xml/",
-      "destination": "/sitemap-index.xml"
-    },
-    {
       "source": "/sitemap-0.xml",
-      "destination": "/sitemap-0.xml"
-    },
-    {
-      "source": "/sitemap-0.xml/",
       "destination": "/sitemap-0.xml"
     }
   ],
-  "trailingSlash": true
+  "trailingSlash": true,
+  "cleanUrls": false
 }

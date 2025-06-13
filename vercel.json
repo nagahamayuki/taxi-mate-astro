@@ -22,7 +22,7 @@
       "permanent": true
     },
     {
-      "source": "/:path((?!index$|index\\.html$|.*\\/|$|.*\\.xml$).+)",
+      "source": "/:path((?!index$|index\\.html$|.*\\/|$|.*\\.xml$|robots\\.txt$).+)",
       "destination": "/:path/",
       "permanent": true
     },

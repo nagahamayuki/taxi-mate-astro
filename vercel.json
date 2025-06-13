@@ -42,6 +42,11 @@
       "permanent": true
     },
     {
+      "source": "/registration/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/registration/index.html",
       "destination": "/",
       "permanent": true
@@ -63,7 +68,7 @@
     },
     {
       "source": "/job/03/",
-      "destination": "/jobs/19282f2e8b7848adb3aea7f62b844b7a/",
+      "destination": "/jobs/19282f2e-8b78-48ad-b3ae-a7f62b844b7a/",
       "permanent": true
     },
     {

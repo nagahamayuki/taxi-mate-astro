@@ -32,22 +32,12 @@
       "permanent": true
     },
     {
-      "source": "/job/",
-      "destination": "/jobs/",
-      "permanent": true
-    },
-    {
       "source": "/job/index.html",
       "destination": "/jobs/",
       "permanent": true
     },
     {
       "source": "/registration",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/registration/",
       "destination": "/",
       "permanent": true
     },
@@ -59,6 +49,31 @@
     {
       "source": "/sitemap.xml/",
       "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/job/01/",
+      "destination": "/jobs/0ed9ca40-2352-4082-8c0b-6d284dd8a7e8/",
+      "permanent": true
+    },
+    {
+      "source": "/job/02/",
+      "destination": "/jobs/a8b6b470-988d-4721-b071-c02404d12578/",
+      "permanent": true
+    },
+    {
+      "source": "/job/03/",
+      "destination": "/jobs/19282f2e8b7848adb3aea7f62b844b7a/",
+      "permanent": true
+    },
+    {
+      "source": "/job/04/",
+      "destination": "/jobs/1bb06ca6-b07b-404d-bb7f-c51e4c35449a/",
+      "permanent": true
+    },
+    {
+      "source": "/job/05/",
+      "destination": "/jobs/0fdf0a54-ce2c-4b5e-8240-325fd8bfd269/",
       "permanent": true
     }
   ],

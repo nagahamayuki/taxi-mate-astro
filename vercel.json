@@ -32,6 +32,11 @@
       "permanent": true
     },
     {
+      "source": "/job/",
+      "destination": "/jobs/",
+      "permanent": true
+    },
+    {
       "source": "/job/index.html",
       "destination": "/jobs/",
       "permanent": true

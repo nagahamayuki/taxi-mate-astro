@@ -67,5 +67,5 @@
       "destination": "/sitemap-0.xml"
     }
   ],
-  "trailingSlash": false
+  "trailingSlash": true
 }

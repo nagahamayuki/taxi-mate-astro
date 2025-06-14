@@ -287,6 +287,10 @@ const imageUrl = post.cover?.external?.url || post.cover?.file?.url;
 - ✅ 外部依存の軽減
 - ✅ 高い可用性とキャッシュ効率
 
-## 1stリリース
+### 1stリリース
 
 2025年6月13日 18:39
+
+### 2nd リリース
+
+2025年6月15日 0:15

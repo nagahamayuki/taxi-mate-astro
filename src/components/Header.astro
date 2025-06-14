@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/images/logo.png';
+---
+
 <header class="bg-white sticky top-0 left-0 right-0 z-50 shadow-md">
   <nav
     class="mx-auto flex max-w-7xl items-center justify-between p-4 sm:p-5 md:p-6 lg:px-6"
@@ -7,7 +12,14 @@
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">タクシーメイト</span>
-        <img class="h-12 w-auto" src="/images/logo.png" alt="タクシーメイト" />
+        <Image
+          src={logoImage}
+          alt="タクシーメイト"
+          width={400}
+          height={96}
+          class="h-12 w-auto"
+          quality={100}
+        />
       </a>
     </div>
 
@@ -112,7 +124,14 @@
       <div class="flex items-center justify-between">
         <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">タクシーメイト</span>
-          <img class="h-8 w-auto" src="/images/logo.png" alt="タクシーメイト" />
+          <Image
+            src={logoImage}
+            alt="タクシーメイト"
+            width={266}
+            height={64}
+            class="h-8 w-auto"
+            quality={100}
+          />
         </a>
         <button
           type="button"

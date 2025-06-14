@@ -1,12 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/images/logo.png';
+---
+
 <footer class="bg-gray-900 text-white">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- サイト概要 -->
       <div>
-        <img
-          class="h-8 w-auto mb-4"
-          src="/images/logo.png"
+        <Image
+          src={logoImage}
           alt="タクシーメイト"
+          width={240}
+          height={64}
+          quality={100}
+          class="h-8 w-auto mb-4"
+          loading="eager"
         />
         <p class="text-gray-300 text-sm mt-4 mb-6">
           業界最大級のタクシードライバー専門求人サイト。あなたにぴったりの求人をご紹介します。

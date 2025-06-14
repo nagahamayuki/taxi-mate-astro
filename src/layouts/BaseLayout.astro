@@ -2,6 +2,9 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import favicon from '../assets/images/favicon.ico';
+import ogImage from '../assets/images/ogimage.png';
 
 export interface Props {
   title?: string;
@@ -49,14 +52,14 @@ const {
     <link rel="preconnect dns-prefetch" href="//connect.facebook.net" />
 
     <!-- favicon関連 -->
-    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="shortcut icon" href={favicon} />
 
     <!-- OGP設定 -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
-    <meta property="og:image" content="/images/ogimage.png" />
+    <meta property="og:image" content={ogImage.src} />
     <meta property="og:site_name" content="タクシーメイト" />
     <meta property="og:locale" content="ja_JP" />
 
@@ -64,7 +67,7 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/ogimage.png" />
+    <meta name="twitter:image" content={ogImage.src} />
 
     <!-- 下記は各ページから固有のhead要素を受け取るためのタグ -->
     <slot name="head" />

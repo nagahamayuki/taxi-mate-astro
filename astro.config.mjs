@@ -39,7 +39,9 @@ export default defineConfig({
     }),
   ],
   adapter: vercel({
-    imageService: true,
+    webAnalytics: {
+      enabled: true,
+    }, // Vercel Analyticsのみ。静的サイトでは画像の最適化はAstroのImageコンポーネントで行う。Verselの画像最適化はAstroのサーバーサイドレンダリングで行われるため。
   }),
   trailingSlash: 'always',
   build: {

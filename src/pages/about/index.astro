@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTA from '../../components/CTA.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import { Image } from 'astro:assets';
+import backgroundImage from '../../assets/images/background.jpg';
 
 const pageUrl = 'https://taxi-mate.jp/about/';
 const pageTitle = 'タクシーメイトとは？';
@@ -82,10 +84,11 @@ const features = [
 
   <!-- ヘッダーセクション -->
   <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-    <img
-      src="/images/background.jpg"
+    <Image
+      src={backgroundImage}
       alt="タクシーメイトの背景画像"
       class="absolute inset-0 -z-10 size-full object-cover"
+      quality={80}
     />
     <div class="absolute inset-0 -z-10 bg-black/30 backdrop-blur-sm"></div>
     <div

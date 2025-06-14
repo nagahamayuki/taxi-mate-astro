@@ -25,6 +25,7 @@ export async function POST({ request }: { request: Request }) {
       license: formData.get('license')?.toString().normalize('NFKC'),
       postNumber: formData.get('post_number'),
       age: formData.get('age'),
+      page_local_url: request.url,
     };
 
     // Send to webhook
@@ -433,6 +434,7 @@ export async function POST({ request }: { request: Request }) {
         license: formData.get('license')?.toString().normalize('NFKC'),
         postNumber: formData.get('post_number'),
         age: formData.get('age'),
+        page_local_url: window.location.href,
       };
 
       console.log('Sending form data:', data);

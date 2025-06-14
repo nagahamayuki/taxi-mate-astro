@@ -575,6 +575,7 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
         age: formData.get('age'),
         jobId: jobId,
         jobCompany: jobCompany,
+        page_local_url: window.location.href,
       };
 
       console.log('Sending form data:', data);

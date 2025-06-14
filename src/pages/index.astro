@@ -377,7 +377,11 @@ const jobs = await getLatestJobsFromNotion();
           jobs.map((job) => (
             <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-60 pb-8 sm:pt-48 lg:pt-60">
               <img
-                src={job.coverUrl || '/images/banner-square.png'}
+                src={
+                  job.coverUrl && job.coverUrl.trim() !== ''
+                    ? job.coverUrl
+                    : '/images/banner-square.png'
+                }
                 alt={`${job.company}の求人画像`}
                 class="absolute inset-0 -z-10 size-full object-cover"
               />

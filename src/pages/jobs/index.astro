@@ -84,7 +84,11 @@ const jobsCount = jobs.length;
                 class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-6 pt-36 pb-6 sm:pt-24 lg:pt-36"
               >
                 <img
-                  src={job.coverUrl || '/images/banner-square.png'}
+                  src={
+                    job.coverUrl && job.coverUrl.trim() !== ''
+                      ? job.coverUrl
+                      : '/images/banner-square.png'
+                  }
                   alt={`${job.company}の求人画像`}
                   class="absolute inset-0 -z-10 size-full object-cover"
                 />

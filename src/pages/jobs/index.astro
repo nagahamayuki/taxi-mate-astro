@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getJobsFromNotion } from '../../lib/notion.js';
 import CTA from '../../components/CTA.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import { Image } from 'astro:assets';
+import background3 from '../../assets/images/background3.jpg';
+import bannerSquare from '../../assets/images/banner-square.png';
 
 const pageUrl = 'https://taxi-mate.jp/jobs/';
 const pageTitle = '求人一覧｜タクシーメイト';
@@ -23,9 +26,11 @@ const jobsCount = jobs.length;
 
   <!-- ヘッダーセクション -->
   <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-    <img
-      src="/images/background3.jpg"
+    <Image
+      src={background3}
       alt="タクシーが走る背景画像"
+      width={1920}
+      height={1080}
       class="absolute inset-0 -z-10 size-full object-cover"
     />
     <div class="absolute inset-0 -z-10 bg-white/20 backdrop-blur-sm"></div>
@@ -83,13 +88,15 @@ const jobsCount = jobs.length;
                 href={`/jobs/${job.id}/`}
                 class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-6 pt-36 pb-6 sm:pt-24 lg:pt-36"
               >
-                <img
+                <Image
                   src={
                     job.coverUrl && job.coverUrl.trim() !== ''
                       ? job.coverUrl
-                      : '/images/banner-square.png'
+                      : bannerSquare
                   }
                   alt={`${job.company}の求人画像`}
+                  width={800}
+                  height={800}
                   class="absolute inset-0 -z-10 size-full object-cover"
                 />
                 <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />

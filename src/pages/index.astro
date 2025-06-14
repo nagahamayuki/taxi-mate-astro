@@ -2,6 +2,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTA from '../components/CTA.astro';
 import { getLatestJobsFromNotion } from '../lib/notion.js';
+import { Image } from 'astro:assets';
+
+// Import images
+import top1 from '../assets/images/top1.jpg';
+import top2 from '../assets/images/top2.jpg';
+import top3 from '../assets/images/top3.jpg';
+import top4 from '../assets/images/top4.jpg';
+import top5 from '../assets/images/top5.jpg';
+import mvIconGo from '../assets/images/mv_icon_go.webp';
+import mvIconSride from '../assets/images/mv_icon_sride.webp';
+import mvIconUber from '../assets/images/mv_icon_uber.webp';
+import mvIconDidi from '../assets/images/mv_icon_didi.webp';
+import feature1 from '../assets/images/feature1.jpg';
+import feature2 from '../assets/images/feature2.jpg';
+import feature3 from '../assets/images/feature3.jpg';
+import whyUs1 from '../assets/images/why-us1.jpg';
+import whyUs2 from '../assets/images/why-us2.jpg';
+import whyUs3 from '../assets/images/why-us3.jpg';
+import bannerSquare from '../assets/images/banner-square.png';
 
 const pageUrl = 'https://taxi-mate.jp/';
 const pageTitle = 'タクシーメイト';
@@ -117,9 +136,11 @@ const jobs = await getLatestJobsFromNotion();
               class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-0 xl:pt-80"
             >
               <div class="relative">
-                <img
-                  src="/images/top1.jpg"
+                <Image
+                  src={top1}
                   alt="タクシー運転手が同僚と話している様子"
+                  width={800}
+                  height={1200}
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -133,9 +154,11 @@ const jobs = await getLatestJobsFromNotion();
               class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36"
             >
               <div class="relative">
-                <img
-                  src="/images/top2.jpg"
+                <Image
+                  src={top2}
                   alt="若い運転手が車に乗っている様子"
+                  width={800}
+                  height={1200}
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -144,9 +167,11 @@ const jobs = await getLatestJobsFromNotion();
                 </div>
               </div>
               <div class="relative">
-                <img
-                  src="/images/top3.jpg"
+                <Image
+                  src={top3}
                   alt="若い女性のドライバーが運転している様子"
+                  width={800}
+                  height={1200}
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -158,9 +183,11 @@ const jobs = await getLatestJobsFromNotion();
 
             <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
               <div class="relative">
-                <img
-                  src="/images/top4.jpg"
+                <Image
+                  src={top4}
                   alt="お客さんを待っている若いドライバー"
+                  width={800}
+                  height={1200}
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -169,9 +196,11 @@ const jobs = await getLatestJobsFromNotion();
                 </div>
               </div>
               <div class="relative">
-                <img
-                  src="/images/top5.jpg"
+                <Image
+                  src={top5}
                   alt="若いドライバーが洗車をしている様子"
+                  width={800}
+                  height={1200}
                   class="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                 />
                 <div
@@ -192,33 +221,37 @@ const jobs = await getLatestJobsFromNotion();
       <div
         class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-4"
       >
-        <img
+        <Image
           class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          src="/images/mv_icon_go.webp"
+          src={mvIconGo}
           alt="Transistor"
-          width="158"
-          height="48"
+          width={316}
+          height={96}
+          quality={100}
         />
-        <img
+        <Image
           class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          src="/images/mv_icon_sride.webp"
+          src={mvIconSride}
           alt="Reform"
-          width="158"
-          height="48"
+          width={316}
+          height={96}
+          quality={100}
         />
-        <img
+        <Image
           class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          src="/images/mv_icon_uber.webp"
+          src={mvIconUber}
           alt="Tuple"
-          width="158"
-          height="48"
+          width={316}
+          height={96}
+          quality={100}
         />
-        <img
+        <Image
           class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-          src="/images/mv_icon_didi.webp"
+          src={mvIconDidi}
           alt="SavvyCal"
-          width="158"
-          height="48"
+          width={316}
+          height={96}
+          quality={100}
         />
       </div>
     </div>
@@ -242,10 +275,12 @@ const jobs = await getLatestJobsFromNotion();
         class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
       >
         <li>
-          <img
+          <Image
             class="aspect-3/2 w-full rounded-2xl object-cover"
-            src="/images/feature1.jpg"
+            src={feature1}
             alt="ドライバー志望者がスマホでタクシー会社の求人を探している様子"
+            width={800}
+            height={533}
           />
           <h3
             class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900 text-center"
@@ -254,10 +289,12 @@ const jobs = await getLatestJobsFromNotion();
           </h3>
         </li>
         <li>
-          <img
+          <Image
             class="aspect-3/2 w-full rounded-2xl object-cover"
-            src="/images/feature2.jpg"
+            src={feature2}
             alt="ドライバー志望者が面接対策を受けている様子"
+            width={800}
+            height={533}
           />
           <h3
             class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900 text-center"
@@ -266,10 +303,12 @@ const jobs = await getLatestJobsFromNotion();
           </h3>
         </li>
         <li>
-          <img
+          <Image
             class="aspect-3/2 w-full rounded-2xl object-cover"
-            src="/images/feature3.jpg"
+            src={feature3}
             alt="キャリアアドバイザーが企業に推薦書を提出している様子"
+            width={800}
+            height={533}
           />
           <h3
             class="mt-6 text-lg/8 font-semibold tracking-tight text-gray-900 text-center"
@@ -308,9 +347,11 @@ const jobs = await getLatestJobsFromNotion();
             </p>
           </div>
           <div class="flex-auto lg:col-span-7 lg:col-start-6 lg:row-start-1">
-            <img
-              src="/images/why-us1.jpg"
+            <Image
+              src={whyUs1}
               alt="White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull."
+              width={1200}
+              height={480}
               class="aspect-5/2 w-full rounded-lg bg-gray-100 object-cover"
             />
           </div>
@@ -327,9 +368,11 @@ const jobs = await getLatestJobsFromNotion();
             </p>
           </div>
           <div class="flex-auto lg:col-span-7 lg:col-start-1 lg:row-start-1">
-            <img
-              src="/images/why-us2.jpg"
+            <Image
+              src={whyUs2}
               alt="Detail of zipper pull with tan leather and silver rivet."
+              width={1200}
+              height={480}
               class="aspect-5/2 w-full rounded-lg bg-gray-100 object-cover"
             />
           </div>
@@ -346,9 +389,11 @@ const jobs = await getLatestJobsFromNotion();
             </p>
           </div>
           <div class="flex-auto lg:col-span-7 lg:col-start-6 lg:row-start-1">
-            <img
-              src="/images/why-us3.jpg"
+            <Image
+              src={whyUs3}
               alt="White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull."
+              width={1200}
+              height={480}
               class="aspect-5/2 w-full rounded-lg bg-gray-100 object-cover"
             />
           </div>
@@ -376,13 +421,15 @@ const jobs = await getLatestJobsFromNotion();
         {
           jobs.map((job) => (
             <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-60 pb-8 sm:pt-48 lg:pt-60">
-              <img
+              <Image
                 src={
                   job.coverUrl && job.coverUrl.trim() !== ''
                     ? job.coverUrl
-                    : '/images/banner-square.png'
+                    : bannerSquare
                 }
                 alt={`${job.company}の求人画像`}
+                width={800}
+                height={600}
                 class="absolute inset-0 -z-10 size-full object-cover"
               />
               <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />

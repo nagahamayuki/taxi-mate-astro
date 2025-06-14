@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getJobsFromNotion, getJobByIdFromNotion } from '../../lib/notion.js';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import { Image } from 'astro:assets';
+import backgroundImage from '../../assets/images/background4.jpg';
 
 export async function getStaticPaths() {
   const jobs = await getJobsFromNotion();
@@ -32,12 +34,15 @@ const pageUrl = `https://taxi-mate.jp/jobs/${slug}/`;
   <div
     class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8"
   >
-    <img
+    <Image
       src={job.coverUrl && job.coverUrl.trim() !== ''
         ? job.coverUrl
-        : '/images/background4.jpg'}
+        : backgroundImage}
       alt="タクシーが走る背景画像"
       class="absolute inset-0 -z-10 size-full object-cover"
+      width={1920}
+      height={1080}
+      quality={80}
     />
     <div class="absolute inset-0 -z-10 bg-black/50 backdrop-blur-sm"></div>
     <div

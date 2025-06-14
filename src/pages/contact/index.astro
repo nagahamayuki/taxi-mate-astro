@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import { Image } from 'astro:assets';
+import backgroundImage from '../../assets/images/background2.jpg';
+import profileImage from '../../assets/images/profile.jpg';
 
 const pageUrl = 'https://taxi-mate.jp/contact/';
 const pageTitle = 'メールで求人を受け取る';
@@ -72,10 +75,13 @@ export async function POST({ request }: { request: Request }) {
 
   <!-- ヘッダーセクション -->
   <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-    <img
-      src="/images/background2.jpg"
+    <Image
+      src={backgroundImage}
       alt="タクシーメイトの背景画像"
+      width={1920}
+      height={1080}
       class="absolute inset-0 -z-10 size-full object-cover"
+      quality={80}
     />
     <div class="absolute inset-0 -z-10 bg-white/30 backdrop-blur-xs"></div>
     <div
@@ -313,10 +319,13 @@ export async function POST({ request }: { request: Request }) {
               </p>
             </blockquote>
             <figcaption class="mt-4 flex items-center gap-x-3">
-              <img
-                src="/images/profile.jpg"
+              <Image
+                src={profileImage}
                 alt=""
+                width={72}
+                height={72}
                 class="size-18 flex-none rounded-full bg-gray-50"
+                quality={80}
               />
               <div class="flex flex-col gap-y-0.5">
                 <div class="text-base font-semibold text-gray-900">

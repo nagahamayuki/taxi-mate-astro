@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import taxiImage from '../assets/images/taxi-left.png';
+---
+
 <div class="bg-white">
   <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
     <div
@@ -60,12 +65,14 @@
         </div>
       </div>
       <div class="relative mt-16 h-80 lg:mt-8">
-        <img
+        <Image
           class="absolute top-10 -left-16 w-228 max-w-none rounded-md"
-          src="/images/taxi-left.png"
-          alt="App screenshot"
-          width="1824"
-          height="1080"
+          src={taxiImage}
+          alt="タクシーの画像"
+          width={1824}
+          height={1080}
+          quality={80}
+          format="webp"
         />
       </div>
     </div>

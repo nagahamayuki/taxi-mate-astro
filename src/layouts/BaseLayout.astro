@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
 import favicon from '../assets/images/favicon.ico';
 import ogImage from '../assets/images/ogimage.png';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 export interface Props {
   title?: string;
@@ -88,5 +89,6 @@ const {
       <slot />
     </main>
     <Footer />
+    <SpeedInsights />
   </body>
 </html>

@@ -20,6 +20,7 @@ import feature3 from '../assets/images/feature3.jpg';
 import whyUs1 from '../assets/images/why-us1.jpg';
 import whyUs2 from '../assets/images/why-us2.jpg';
 import whyUs3 from '../assets/images/why-us3.jpg';
+import bannerSquare from '../assets/images/banner-square.png';
 
 const pageUrl = 'https://taxi-mate.jp/';
 const pageTitle = 'タクシーメイト';
@@ -420,13 +421,15 @@ const jobs = await getLatestJobsFromNotion();
         {
           jobs.map((job) => (
             <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pt-60 pb-8 sm:pt-48 lg:pt-60">
-              <img
+              <Image
                 src={
                   job.coverUrl && job.coverUrl.trim() !== ''
                     ? job.coverUrl
-                    : '/images/banner-square.png'
+                    : bannerSquare
                 }
                 alt={`${job.company}の求人画像`}
+                width={800}
+                height={600}
                 class="absolute inset-0 -z-10 size-full object-cover"
               />
               <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />

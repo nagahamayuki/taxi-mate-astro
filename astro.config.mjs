@@ -30,11 +30,12 @@ export default defineConfig({
         },
       },
       // サイトマップのファイル名を指定
-      serialize: (item) => {
-        return {
-          ...item,
-          url: item.url.replace(/\/$/, ''),
-        };
+      serialize(item) {
+        // すべてのURLにスラッシュを付ける（trailingSlash: 'always' の設定に従う）
+        if (!item.url.endsWith('/')) {
+          item.url = item.url + '/';
+        }
+        return item;
       },
     }),
   ],
